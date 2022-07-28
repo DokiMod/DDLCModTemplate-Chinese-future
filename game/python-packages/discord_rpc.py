@@ -26,14 +26,14 @@ class DiscordRPC:
 
         # State indicates additional information to details
         # Example: Browsing Settings
-        self.state = "Monika Is Watching You Code"
+        self.state = "莫妮卡在看着代码哦~"
 
         # The previous state the RPC was in
         self.prev_state = None
 
         # Defines the largest image to use in rich presence as the
         # main icon.
-        self.large_img = "ddlcmodtemplatelogo"
+        self.large_img = "dokimod_avatar1024h"
 
         # Defines the text when a user hovers on the large icon in
         # a players' status.
@@ -63,25 +63,25 @@ class DiscordRPC:
 
             # These default checks sets up different statuses per menu accessed.
             if renpy.display.screen.get_screen("main_menu"):
-                self.update_state("In the Main Menu")
+                self.update_state("在主菜单")
             elif renpy.display.screen.get_screen("navigation"):
-                self.update_state("In the Start Menu")
+                self.update_state("在开始菜单")
             elif renpy.display.screen.get_screen("preferences"):
-                self.update_state("In the Settings Menu")
+                self.update_state("在设置菜单")
             elif renpy.display.screen.get_screen("load"):
-                self.update_state("In the Load Menu")
+                self.update_state("在读档菜单")
             elif renpy.display.screen.get_screen("save"):
-                self.update_state("In the Save Menu")
+                self.update_state("在存档菜单")
             elif renpy.display.screen.get_screen("history"):
-                self.update_state("In the History Menu")
+                self.update_state("在翻对话历史")
             elif renpy.display.screen.get_screen("extras"):
-                self.update_state("In the Extras Menu")
+                self.update_state("在额外功能菜单")
             elif renpy.display.screen.get_screen("gallery"):
-                self.update_state("In the Gallery Menu")
+                self.update_state("在图库菜单")
             elif renpy.display.screen.get_screen("preview"):
-                self.update_state("Previewing a Gallery Image")
+                self.update_state("在翻图库")
             elif renpy.display.screen.get_screen("achievements"):
-                self.update_state("In the Awards Menu")
+                self.update_state("在成就菜单")
             else:
                 self.update_state(self.prev_state)
                 self.prev_state = None

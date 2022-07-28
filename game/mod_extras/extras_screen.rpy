@@ -49,8 +49,8 @@ screen extras():
                             yalign 0.5
             
                             imagebutton:
-                                idle Composite((150, 130), (50, 20), "mod_assets/mod_extra_images/achievements.png", (40, 75), Text("Awards", style="extras_text"))
-                                hover Composite((150, 130), (50, 20), "mod_assets/mod_extra_images/achievements.png", (38, 73), Text("Awards", style="extras_hover_text"))
+                                idle Composite((150, 130), (50, 20), "mod_assets/mod_extra_images/achievements.png", (54, 75), Text("成就", style="extras_text"))
+                                hover Composite((150, 130), (50, 20), "mod_assets/mod_extra_images/achievements.png", (52, 73), Text("成就", style="extras_hover_text"))
                                 action ShowMenu("achievements")
 
                 frame:

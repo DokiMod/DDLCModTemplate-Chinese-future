@@ -668,6 +668,33 @@ screen poem(currentpoem, paper="paper"):
 
     vbar value YScrollValue(viewport="vp") style "poem_vbar"
 
+screen poem_en(currentpoem, paper="paper"):
+    style_prefix "poem"
+    vbox:
+        add paper
+    viewport id "vp":
+        child_size (710, None) #Subwindow size for showing text
+        mousewheel True #make scrollable
+        draggable True
+        vbox:
+            null height 40
+            #Text style is determine by the author
+            if currentpoem.author == "yuri":
+                if currentpoem.yuri_2:
+                    text "[currentpoem.title]\n\n[currentpoem.text]" style "yuri_text_en"
+                elif currentpoem.yuri_3:
+                    text "[currentpoem.title]\n\n[currentpoem.text]" style "yuri_text_3_en"
+                else:
+                    text "[currentpoem.title]\n\n[currentpoem.text]" style "yuri_text_en"
+            elif currentpoem.author == "sayori":
+                text "[currentpoem.title]\n\n[currentpoem.text]" style "sayori_text_en"
+            elif currentpoem.author == "natsuki":
+                text "[currentpoem.title]\n\n[currentpoem.text]" style "natsuki_text_en"
+            elif currentpoem.author == "monika":
+                text "[currentpoem.title]\n\n[currentpoem.text]" style "monika_text_en"
+            null height 100
+    vbar value YScrollValue(viewport="vp") style "poem_vbar"
+
 # This style controls the position of the poem vertical box.
 style poem_vbox:
     xalign 0.5
@@ -688,7 +715,7 @@ style poem_vbar is vscrollbar:
 
 # These styles controls the appearance of the poem text by who wrote the poem.
 style yuri_text:
-    font "gui/font/y1.ttf"
+    font "mod_assets/font/yuri.ttf" #font used packaged with the game
     size 32
     color "#000"
     outlines []
@@ -708,26 +735,66 @@ style yuri_text_3:
     justify True
 
 style natsuki_text:
-    font "gui/font/n1.ttf"
+    font "mod_assets/font/natsuki.otf"
     size 28
     color "#000"
     outlines []
     line_leading 1
 
 style sayori_text:
-    font "gui/font/s1.ttf"
+    font "mod_assets/font/sayori.ttf"
     size 34
     color "#000"
     outlines []
 
 style monika_text:
+    font "mod_assets/font/monika.ttf"
+    size 34
+    color "#000"
+    outlines []
+
+style yuri_text_en:
+    font "gui/font/y1.ttf" #font used packaged with the game
+    size 32
+    color "#000"
+    outlines []
+
+# style yuri_text_2:
+#     font "gui/font/y2.ttf"
+#     size 40
+#     color "#000"
+#     outlines []
+# y2.ttf 未被使用
+
+style yuri_text_3_en:
+    font "gui/font/y3.ttf"
+    size 18
+    color "#000"
+    outlines []
+    kerning -8
+    justify True
+
+style natsuki_text_en:
+    font "gui/font/n1.ttf"
+    size 28
+    color "#000"
+    outlines []
+    line_leading 1
+
+style sayori_text_en:
+    font "gui/font/s1.ttf"
+    size 34
+    color "#000"
+    outlines []
+
+style monika_text_en:
     font "gui/font/m1.ttf"
     size 34
     color "#000"
     outlines []
 
 # This label shows the poem to the player during the poem sharing mini-game.
-label showpoem(poem=None, music=True, track=None, revert_music=True, img=None, where=i11, paper=None):
+label showpoem(poem=None, music=True, track=None, revert_music=True, img=None, where=i11, paper=None, chinese=True):
     if poem == None:
         return
 
@@ -754,10 +821,16 @@ label showpoem(poem=None, music=True, track=None, revert_music=True, img=None, w
 
     # This if/else statement determines whether to show a alternative poem paper
     # if it is declared in the label statement.
-    if paper:
-        show screen poem(poem, paper=paper)
+    if chinese:
+        if paper:
+            show screen poem(poem, paper=paper)
+        else:
+            show screen poem(poem)
     else:
-        show screen poem(poem)
+        if paper:
+            show screen poem_en(poem, paper=paper)
+        else:
+            show screen poem_en(poem)
 
     # This statement determines if this is the player's first poem to show a
     # tutorial to dismiss the poem.

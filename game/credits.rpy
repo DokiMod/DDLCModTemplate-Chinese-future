@@ -189,7 +189,7 @@ image credits_ts:
 # This style declares the text appearance of the work type credits text in the
 # credits.
 style credits_header:
-    font "gui/font/RifficFree-Bold.ttf"
+    font "mod_assets/font/zcoolkuaile.ttf"
     color "#ffaae6"
     size 36
     text_align 0.5
@@ -198,7 +198,7 @@ style credits_header:
 # This style declares the text appearance of the person type credits text in the
 # credits.
 style credits_text:
-    font "gui/font/Halogen.ttf"
+    font "mod_assets/font/zhushi.ttf"
     color "#fff"
     size 36
     text_align 0.5

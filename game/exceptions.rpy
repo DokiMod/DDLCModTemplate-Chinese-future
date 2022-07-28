@@ -7,15 +7,15 @@ python early:
     
     class NotRenPyEight(Exception):
         def __str__(self):
-            return "This version of the mod template is designed for Ren'Py 8.\nEither build/run your mod on Ren'Py 8, or install the 'py2' mod template instead from scratch."
+            return "DDLC 中文 Mod 模板 4.0 仅支持 Ren'Py 8。\n请您在使用本模板之前切换到 Ren'Py 8 进行开发，旧版本的 Ren'Py 已不受支持。"
 
     class DDLCRPAsMissing(Exception):
         def __init__(self, archive):
             self.archive = archive
 
         def __str__(self):
-            return "'" + self.archive + ".rpa' was not found in the game folder. Check your DDLC installation for missing RPAs and try again."
+            return "未在游戏目录中找到 '" + self.archive + ".rpa'。请检查你的 DDLC 游戏副本，引入丢失文件后重试。"
 
     class IllegalModLocation(Exception):
         def __str__(self):
-            return "DDLC mods/mod projects cannot be run from a cloud folder. Move your mod/mod project to another location and try again."
+            return "DDLC Mod 及其工程无法运行于云端文件夹。请移动您的工程文件夹，然后重试。"

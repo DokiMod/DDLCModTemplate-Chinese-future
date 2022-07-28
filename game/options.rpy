@@ -6,14 +6,14 @@
 # This file customizes what your mod is and and how it starts and builds!
 
 # This controls what your mod is called.
-define config.name = "DDLC Mod Template – Python 3 Edition"
+define config.name = "DDLC 中文 Mod 模板 4.0"
 
 # This controls whether you want your mod name to show in the main menu.
 # If your mod name is big, it is suggested to turn this off.
 define gui.show_name = True
 
 # This controls the version number of your mod.
-define config.version = "4.0.1–Py3"
+define config.version = "4.0.1–zh-py3"
 
 # This adds information about your mod in the About screen.
 # DDLC does not have a 'About' screen so you can leave this blank.
@@ -24,7 +24,7 @@ define gui.about = _("")
 # Note:
 #   The build name is ASCII only so no numbers, spaces, or semicolons.
 #   Example: Doki Doki Yuri Time to DokiDokiYuriTime
-define build.name = "DDLCModTemplateTwo-Py3"
+define build.name = "DDLCModTemplateZh-Future"
 
 # This configures whether your mod has sound effects.
 define config.has_sound = True
@@ -178,6 +178,8 @@ init python:
     # to build your mod on Android like in this example.
     #   Example: build.classify("game/**.pdf", "scripts all")
     build.classify("game/mod_assets/**", "mod_assets all")
+    build.classify("game/gui/**", "mod_assets all") ## Native Ren'Py way support
+    build.classify("game/images/**", "mod_assets all") ## Native Ren'Py way support
     build.classify("game/presplash.png", "scripts all")
     build.classify("game/**.rpyc", "scripts all")
     build.classify("game/README.md", None)

@@ -49,7 +49,7 @@ init python:
 
     # This section declares the achievements. See the 'Achievements' class
     # syntax to declare one.
-    startup = Achievements("Welcome to DDLC!", "Thanks for accepting the TOS.",
+    startup = Achievements("欢迎来到文学部！", "感谢您同意了用户协议。",
             "gui/logo.png", "persistent.first_run")
 
 ## Achievements Screen #############################################################
@@ -70,7 +70,7 @@ screen achievements():
     tag menu
     style_prefix "achievements"
 
-    use game_menu(_("Awards")):
+    use game_menu(_("成就")):
 
         fixed:
             # This vbox is responsible for the achievement display above the list
@@ -163,7 +163,7 @@ screen achievements():
         textbutton "?":
             style "return_button"
             xpos 0.99 ypos 1.1
-            action ShowMenu("dialog", "{b}Help{/b}\nGray icons indicate that this achievement is locked.\nContinue your progress in [config.name]\nto unlock all the achievements possible.", ok_action=Hide("dialog"))
+            action ShowMenu("dialog", "{b}帮助{/b}\nGray icons indicate that this achievement is locked.\nContinue your progress in [config.name]\nto unlock all the achievements possible.", ok_action=Hide("dialog"))
 
         if config.developer:
             textbutton "Test Notif":

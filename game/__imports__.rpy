@@ -32,4 +32,4 @@ init -19 python:
     # For Discord RPC
     if persistent.enable_discord:
         from discord_rpc import DiscordRPC
-        RPC = DiscordRPC("979471077187125248")
+        RPC = DiscordRPC("1002058739844644885")
