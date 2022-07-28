@@ -1470,10 +1470,10 @@ default faint_effect = None
 # To define a default name make a character name variable like in this example:
 #   default e_name = "Eileen"
 
-default s_name = "Sayori"
-default m_name = "Monika"
-default n_name = "Natsuki"
-default y_name = "Yuri"
+default s_name = "纱世里"
+default m_name = "莫妮卡"
+default n_name = "夏树"
+default y_name = "优里"
 
 # Poem Variables
 # This section records how much each character likes your poem in-game.

@@ -364,25 +364,26 @@ label splashscreen:
         ## unaffiliated with Team Salvato, requires that the player must 
         ## finish DDLC before playing, has spoilers for DDLC, and where to 
         ## get DDLC's files."
-        "[config.name] is a Doki Doki Literature Club fan mod that is not affiliated in anyway with Team Salvato."
-        "It is designed to be played only after the official game has been completed, and contains spoilers for the official game."
-        "Game files for Doki Doki Literature Club are required to play this mod and can be downloaded for free at: https://ddlc.moe or on Steam."
+        "[config.name] 是 Doki Doki Literature Club 的饭制模组，与 Team Salvato 完全无关。"
+        "本模组需要在通关原版游戏后再进行游玩，且本模组包含原版游戏的剧透。"
+        "游玩本模组需要原版 Doki Doki Literature Club 的文件。您可以在 {a=https://ddlc.moe}https://ddlc.moe{/a} 或者 Steam 免费获取。"
 
         menu:
-            "By playing [config.name] you agree that you have completed Doki Doki Literature Club and accept any spoilers contained within."
-            "I agree.":
+            "如果继续游玩 [config.name] 将视为你已经通关原版游戏，并接受任何剧透内容。"
+            "我同意。":
                 pass
-
+            "我不同意，退出。":
+                $ renpy.quit()
         $ persistent.first_run = True
         scene tos2
         with Dissolve(1.5)
         pause 1.0
 
         ## （需要启用额外选项）自动检测设备是否正在运行直播 / 录屏类软件，并自动切换到实况共玩模式，
-        ## 提醒用户已经启用该模式。
-        ## （该模式旨在）
+        ## 提醒用户已经启用该模式。基于原版模板加大了覆盖范围。
+        ## （该模式无法解除 DDLC 在中国大陆的屏蔽）
         if extra_settings:
-            if process_check(["obs32.exe", "obs64.exe", "obs.exe", "xsplit.core.exe", "livehime.exe", "pandatool.exe", "yymixer.exe", "douyutool.exe", "huomaotool.exe", "dytool.exe", "twitchstudio.exe", "gamecaster.exe", "evcapture.exe"]):
+            if process_check(["obs32.exe", "obs64.exe", "obs.exe", "xsplit.core.exe", "livehime.exe", "pandatool.exe", "yymixer.exe", "douyutool.exe", "huomaotool.exe", "dytool.exe", "twitchstudio.exe", "gamecaster.exe", "evcapture.exe", "kk.exe", "streamlabs obs.exe"]):
                 $ persistent.lets_play = True
                 call screen dialog("实况共玩模式已自动启用。\n该模式允许你跳过包含敏感内容的内容，同时也可以提供备选故事方案。\n设置可用性取决于 Mod 开发者是否在故事线中进行了相应配置。\n\n如需关闭实况共玩模式，请前往设置，并取消选择“实况共玩模式”。\n请注意：实况共玩模式无法改变 DDLC 在中国大陆的屏蔽现状，\n请始终避免在中国大陆平台发布 / 直播与 DDLC 有关的内容。", 
                     [Hide("dialog"), Return()])
@@ -537,7 +538,7 @@ label warningscreen:
 ## Act 1. This feature has been commented out for mod safety reasons but can be
 ## used if needed.
 # label ch0_kill:
-#     $ s_name = "Sayori"
+#     $ s_name = "纱世里"
 #     show sayori 1b zorder 2 at t11
 #     s "..."
 #     s "..."
@@ -602,7 +603,7 @@ label after_load:
         scene black
         "The save file could not be loaded."
         "Are you trying to cheat?"
-        $ m_name = "Monika"
+        $ m_name = "莫妮卡"
         show monika 1 at t11
         if persistent.playername == "":
             m "You're so funny."
