@@ -166,7 +166,7 @@ screen gallery():
 
     tag menu
 
-    use game_menu(_("Gallery")):
+    use game_menu(_("图库")):
         
         fixed:
 

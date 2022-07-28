@@ -421,14 +421,15 @@ screen quick_menu():
             yalign 0.995
 
             #textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+            textbutton _("历史") action ShowMenu('history')
+            textbutton _("快进") action Skip()
+            #textbutton _("快进") action Skip() alternate 快进(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Load") action ShowMenu('load')
+            textbutton _("存档") action ShowMenu('save')
+            textbutton _("读档") action ShowMenu('load')
             #textbutton _("Q.Save") action QuickSave()
             #textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Settings") action ShowMenu('preferences')
+            textbutton _("设置") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -484,18 +485,18 @@ screen navigation():
                 if persistent.playthrough == 1:
                     textbutton _("ŔŗñĮ¼»ŧþŀÂŻŕěōì«") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(FinishEnterName)))
                 else:
-                    textbutton _("New Game") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(FinishEnterName)))
+                    textbutton _("新游戏") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(FinishEnterName)))
 
             else:
 
-                textbutton _("History") action [ShowMenu("history"), SensitiveIf(renpy.get_screen("history") == None)]
+                textbutton _("历史") action [ShowMenu("history"), SensitiveIf(renpy.get_screen("history") == None)]
 
-                textbutton _("Save Game") action [ShowMenu("save"), SensitiveIf(renpy.get_screen("save") == None)]
+                textbutton _("存档") action [ShowMenu("save"), SensitiveIf(renpy.get_screen("save") == None)]
 
-            textbutton _("Load Game") action [ShowMenu("load"), SensitiveIf(renpy.get_screen("load") == None)]
+            textbutton _("读档") action [ShowMenu("load"), SensitiveIf(renpy.get_screen("load") == None)]
 
             if enable_extras_menu:
-                textbutton _("Extras") action [ShowMenu("extras"), SensitiveIf(renpy.get_screen("extras") == None)]
+                textbutton _("额外功能") action [ShowMenu("extras"), SensitiveIf(renpy.get_screen("extras") == None)]
 
             if _in_replay:
 
@@ -507,10 +508,10 @@ screen navigation():
                 else:
                     textbutton _("Main Menu") action NullAction()
 
-            textbutton _("Settings") action [ShowMenu("preferences"), SensitiveIf(renpy.get_screen("preferences") == None)]
+            textbutton _("设置") action [ShowMenu("preferences"), SensitiveIf(renpy.get_screen("preferences") == None)]
 
             if not enable_extras_menu:
-                textbutton _("Credits") action ShowMenu("about")
+                textbutton _("关于") action ShowMenu("about")
 
             if renpy.variant("pc"):
 
@@ -805,7 +806,7 @@ screen about():
                 ## Do not touch/remove these unless the © or – symbol isn't available in your font.
                 ## You may add things above or below it.
                 ## If you are not going with a splashscreen option, this first line MUST stay in the mod.
-                text "使用由 GanstaKingofSA 开发，DokiMod 翻译的\n{a=https://github.com/DokiMod/DDLCModTemplate-Chinese-future}DDLC 中文 Mod 模板{/a} – 版本 4.0.1-zh。\nCopyright © 2019-" + str(datetime.date.today().year) + " Azariel Del Carmen (GanstaKingofSA). All rights reserved.\nTranslated by DokiMod.\n"
+                text "使用由 GanstaKingofSA 开发，DokiMod 翻译的\n{a=https://github.com/DokiMod/DDLCModTemplate-Chinese-future}DDLC 中文 Mod 模板{/a} – 版本 4.0.1-zh。\nCopyright © 2019-" + str(datetime.date.today().year) + " Azariel Del Carmen (GanstaKingofSA). All rights reserved.\nTemplate translated by DokiMod.\n"
                 text "Doki Doki Literature Club. Copyright © 2017 Team Salvato. All rights reserved.\n"
                 text _("引擎：{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only]。\n[renpy.license!t]")
 
@@ -850,14 +851,14 @@ screen save():
 
     tag menu
 
-    use file_slots(_("Save"))
+    use file_slots(_("存档"))
 
 
 screen load():
 
     tag menu
 
-    use file_slots(_("Load"))
+    use file_slots(_("读档"))
 
 init python:
     def FileActionMod(name, page=None, **kwargs):
@@ -1000,7 +1001,7 @@ screen preferences():
     else:
         $ cols = 4
 
-    use game_menu(_("Settings"), scroll="viewport"):
+    use game_menu(_("设置"), scroll="viewport"):
 
         vbox:
             if extra_settings:
@@ -1036,17 +1037,17 @@ screen preferences():
                 if extra_settings:
                     vbox:
                         style_prefix "check"
-                        label _("Extra Settings")
+                        label _("额外选项")
                         textbutton _("Uncensored Mode") action If(persistent.uncensored_mode, 
                             ToggleField(persistent, "uncensored_mode"), 
                             Show("confirm", message="Are you sure you want to turn on Uncensored Mode?\nDoing so will enable more adult/sensitive\ncontent in your playthrough.\n\nThis setting will be dependent on the modder if\nthey programmed these checks in their story.", 
                                 yes_action=[Hide("confirm"), ToggleField(persistent, "uncensored_mode")],
                                 no_action=Hide("confirm")
                             ))
-                        textbutton _("Let's Play Mode") action If(persistent.lets_play, 
+                        textbutton _("实况共玩模式") action If(persistent.lets_play, 
                             ToggleField(persistent, "lets_play"),
                             [ToggleField(persistent, "lets_play"), Show("dialog", 
-                                message="You have enabled Let's Play Mode.\nThis mode allows you to skip content that\ncontains sensitive information or apply alternative\nstory options.\n\nThis setting will be dependent on the modder\nif they programmed these checks in their story.", 
+                                message="您已启用实况共玩模式。\n该模式允许你跳过包含敏感内容的内容，同时也可以提供备选故事方案。\n\n该设置取决于 Mod 开发者是否在故事线中进行了相应配置。", 
                                 ok_action=Hide("dialog")
                             )])
                             
@@ -1229,7 +1230,7 @@ screen history():
     ## Avoid predicting this screen, as it can be very large.
     predict False
 
-    use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport")):
+    use game_menu(_("历史"), scroll=("vpgrid" if gui.history_height else "viewport")):
         
         style_prefix "history"
        
@@ -1494,7 +1495,7 @@ screen name_input(message, ok_action):
                 xalign 0.5
                 spacing 100
 
-                textbutton _("OK") action ok_action
+                textbutton _("好的") action ok_action
 
 screen dialog(message, ok_action):
 
@@ -1522,7 +1523,7 @@ screen dialog(message, ok_action):
                 xalign 0.5
                 spacing 100
 
-                textbutton _("OK") action ok_action
+                textbutton _("好的") action ok_action
 
 image confirm_glitch:
     "gui/overlay/confirm_glitch.png"

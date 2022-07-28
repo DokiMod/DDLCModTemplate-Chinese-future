@@ -23,12 +23,12 @@ init -100 python:
 init python:
     # This variable is the default splash message that people will see when
     # the game launches.
-    splash_message_default = "This game is an unofficial fan game that is unaffiliated with Team Salvato."
+    splash_message_default = "本游戏为非官方性质的饭制游戏，与 Team Salvato 无关。"
     # This array variable stores different kinds of splash messages you can use
     # to show to the player on startup.
     splash_messages = [
-        "Please support Doki Doki Literature Club.",
-        "Monika is watching you code."
+        "文学部需要你的支持。",
+        "莫妮卡在看着代码哦。"
     ]
 
     ### New in 3.0.0
@@ -378,13 +378,13 @@ label splashscreen:
         with Dissolve(1.5)
         pause 1.0
 
-        ## This if statement checks if we are running any common streaming/recording 
-        ## software so the game can enable Let's Play Mode automatically and notify
-        ## the user about it if extra settings are enabled.
+        ## （需要启用额外选项）自动检测设备是否正在运行直播 / 录屏类软件，并自动切换到实况共玩模式，
+        ## 提醒用户已经启用该模式。
+        ## （该模式旨在）
         if extra_settings:
-            if process_check(["obs32.exe", "obs64.exe", "obs.exe", "xsplit.core.exe", "livehime.exe", "pandatool.exe", "yymixer.exe", "douyutool.exe", "huomaotool.exe"]):
+            if process_check(["obs32.exe", "obs64.exe", "obs.exe", "xsplit.core.exe", "livehime.exe", "pandatool.exe", "yymixer.exe", "douyutool.exe", "huomaotool.exe", "dytool.exe", "twitchstudio.exe", "gamecaster.exe", "evcapture.exe"]):
                 $ persistent.lets_play = True
-                call screen dialog("Let's Play Mode has been enabled automatically.\nThis mode allows you to skip content that\ncontains sensitive information or apply alternative\nstory options.\n\nThis setting will be dependent on the modder\nif they programmed these checks in their story.\n\n To turn off Let's Play Mode, visit Settings and\nuncheck Let's Play Mode.", 
+                call screen dialog("实况共玩模式已自动启用。\n该模式允许你跳过包含敏感内容的内容，同时也可以提供备选故事方案。\n设置可用性取决于 Mod 开发者是否在故事线中进行了相应配置。\n\n如需关闭实况共玩模式，请前往设置，并取消选择“实况共玩模式”。\n请注意：实况共玩模式无法改变 DDLC 在中国大陆的屏蔽现状，\n请始终避免在中国大陆平台发布 / 直播与 DDLC 有关的内容。", 
                     [Hide("dialog"), Return()])
         scene white
 

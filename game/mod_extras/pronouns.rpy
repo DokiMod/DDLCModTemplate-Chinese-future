@@ -68,4 +68,4 @@ screen pronoun_input(message, ok_action, hes=False):
                 xalign 0.5
                 spacing 100
 
-                textbutton _("OK") action [ok_action, Return(0)]
+                textbutton _("好的") action [ok_action, Return(0)]
