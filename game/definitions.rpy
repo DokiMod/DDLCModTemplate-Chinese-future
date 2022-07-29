@@ -1386,7 +1386,7 @@ image monika g2:
             pause 0.2
     repeat
 
-## Character Variables
+## 角色变量
 # This is where the characters are declared in the mod.
 # To define a new character with assets, declare a character variable like in this example:
 #   define e = DynamicCharacter('e_name', image='eileen', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
@@ -1423,12 +1423,12 @@ default him_capital = him.capitalize()
 default are_capital = are.capitalize()
 default hes_capital = hes.capitalize()
 
-## Extra Settings Variables
+## 额外设置变量
 # This section controls whether the mod is censored or is in let's play mode.
 default persistent.uncensored_mode = False
 default persistent.lets_play = False
 
-## Variables
+## 变量
 # This section declares variables when the mod runs for the first time on all saves.
 # To make a new persistent variable, make a new variable with the 'persistent.' in it's name
 # like in this example:
@@ -1466,7 +1466,7 @@ default chapter = 0
 default currentpos = 0
 default faint_effect = None
 
-# Default Name Variables
+# 默认名称变量
 # To define a default name make a character name variable like in this example:
 #   default e_name = "Eileen"
 

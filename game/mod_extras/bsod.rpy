@@ -1,5 +1,5 @@
 ## Copyright 2019-2022 Azariel Del Carmen (GanstaKingofSA). All rights reserved.
-
+## Modified for Chinese Mod by DokiMod.
 # bsod.rpy
 # This file contains the screen code to display a fake Blue Screen of death.
 

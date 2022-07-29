@@ -163,10 +163,10 @@ screen achievements():
         textbutton "?":
             style "return_button"
             xpos 0.99 ypos 1.1
-            action ShowMenu("dialog", "{b}帮助{/b}\nGray icons indicate that this achievement is locked.\nContinue your progress in [config.name]\nto unlock all the achievements possible.", ok_action=Hide("dialog"))
+            action ShowMenu("dialog", "{b}帮助{/b}\n灰色图标代表成就未解锁。\n继续游玩[config.name]以解锁更多成就。", ok_action=Hide("dialog"))
 
         if config.developer:
-            textbutton "Test Notif":
+            textbutton "测试提示":
                 style "return_button"
                 xpos 0.8 ypos 1.1
                 action ShowMenu("achievement_notify", startup)
@@ -197,7 +197,7 @@ screen achievement_notify(reward):
             spacing 20
             vbox:
                 spacing 5
-                text "Achievement Unlocked!" size 16
+                text "成就已解锁！" size 16
                 text reward.name size 14
     
     timer 5.0 action [Hide("achievement_notify"), With(Dissolve(1.0))]

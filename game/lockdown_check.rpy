@@ -21,13 +21,12 @@ label lockdown_check:
     if renpy.version_tuple > (8, 0, 1, 22070801):
 
         scene black
-        "{b}Warning:{/b} The version of Ren'Py you are trying to mod DDLC on has not been tested for modding compatibility."
-        "The last recent version of Ren'Py 8 that works for DDLC mods is \"{i}Ren'Py 8.0.1{/i}\"."
-        "Running DDLC or your DDLC mod on a higher version than the one tested may introduce bugs and other game breaking features."
-        
+        "{b}警告：{/b}您目前用于开发 DDLC 模组的 Ren'Py SDK 未经过模组兼容性测试。"
+        "目前最新的适用于 DDLC 模组的 Ren'Py 8 版本为{a=https://www.renpy.org/release/8.0.1}“Ren'Py 8.0.1”{/a}。"
+        "在过高版本的 Ren'Py 上运行 DDLC 或其模组可能会引发问题，也可能导致游戏功能损坏。"
         menu:
-            "By continuing to run your mod on [version!q], you acknoledge this disclaimer and the possible problems that can happen on a untested Ren'Py version."
-            "I agree.":
+            "继续在 Ren'Py [version!q] 版本中运行模组，则代表您同意此免责声明，并接受模组在未经测试的 Ren'Py 版本中运行时可能带来的问题。"
+            "我同意。":
                 $ persistent.lockdown_warning = True
                 return
 

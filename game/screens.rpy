@@ -2,7 +2,7 @@
 
 # This file declares all the screens and styles in DDLC.
 
-## Initialization
+## 初始化
 ################################################################################
 
 init offset = -1
@@ -19,7 +19,7 @@ init python:
         rv = [(i, renpy.translate_string("{#language name and font}", i)) for i in languages ]
         rv.sort(key=lambda a : renpy.filter_text_tags(a[1], allow=[]).lower())
 
-        rv.insert(0, (None, "English"))
+        rv.insert(0, (None, "简体中文"))
 
         bound = math.ceil(len(rv)/2.)
 
@@ -160,22 +160,19 @@ style frame:
     # background Frame(recolorize("gui/frame.png"), gui.frame_borders, tile=gui.frame_tile)
 
 ################################################################################
-## In-game screens
+## 游戏内界面
 ################################################################################
 
 
-## Say screen ##################################################################
+## 对话界面 ########################################################################
 ##
-## The say screen is used to display dialogue to the player. It takes two
-## parameters, who and what, which are the name of the speaking character and
-## the text to be displayed, respectively. (The who parameter can be None if no
-## name is given.)
+## 对话界面用于向用户显示对话。它需要两个参数，who 和 what，分别是叙述角色的名字
+## 和所叙述的文本。（如果没有名字，参数 who 可以是 None。）
 ##
-## This screen must create a text displayable with id "what", as Ren'Py uses
-## this to manage text display. It can also create displayables with id "who"
-## and id "window" to apply style properties.
+## 此界面必须创建一个 id 为 what 的文本可视控件，因为 Ren'Py 使用它来管理文本显
+## 示。它还可以创建 id 为 who 和 id 为 window 的可视控件来应用样式属性。
 ##
-## https://www.renpy.org/doc/html/screen_special.html#say
+## https://www.renpy.cn/doc/screen_special.html#say
 
 screen say(who, what):
     style_prefix "say"
@@ -191,8 +188,8 @@ screen say(who, what):
                 style "namebox"
                 text who id "who"
 
-    # If there's a side image, display it above the text. Do not display
-    # on the phone variant - there's no room.
+    ## 如果有对话框头像，会将其显示在文本之上。请不要在手机界面下显示这个，因为
+    ## 没有空间。
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
 
@@ -255,15 +252,13 @@ image ctc:
         easein 0.75 alpha 0.5 xoffset -5
         repeat
 
-## Input screen ################################################################
+## 输入界面 ########################################################################
 ##
-## This screen is used to display renpy.input. The prompt parameter is used to
-## pass a text prompt in.
+## 此界面用于显示 renpy.input。prompt 参数用于传递文本提示。
 ##
-## This screen must create an input displayable with id "input" to accept the
-## various input parameters.
+## 此界面必须创建一个 id 为 input 的输入可视控件来接受各种输入参数。
 ##
-## http://www.renpy.org/doc/html/screen_special.html#input
+## https://www.renpy.cn/doc/screen_special.html#input
 
 image input_caret:
     Solid("#b59")
@@ -301,11 +296,10 @@ style input:
     text_align 0.5
 
 
-## Choice screen ###############################################################
+## 选择界面 ########################################################################
 ##
-## This screen is used to display the in-game choices presented by the menu
-## statement. The one parameter, items, is a list of objects, each with caption
-## and action fields.
+## 此界面用于显示由 menu 语句生成的游戏内选项。参数 items 是一个对象列表，每个对
+## 象都有字幕和动作字段。
 ##
 ## New as of 3.0.0
 ##    - You may now pass through argurments to the menu options to colorize
@@ -314,7 +308,7 @@ style input:
 ##
 ##      Examples: "Option 1 (kwargs=#00fbff)" | "Option 2 (kwargs=#00fbff, #6cffff)"
 ##
-## http://www.renpy.org/doc/html/screen_special.html#choice
+## https://www.renpy.cn/doc/screen_special.html#choice
 
 screen choice(items):
     style_prefix "choice"
@@ -401,14 +395,13 @@ screen rigged_choice(items):
     timer 1.0/30.0 repeat True action Function(RigMouse)
 
 
-## Quick Menu screen ###########################################################
+## 快捷菜单界面 ######################################################################
 ##
-## The quick menu is displayed in-game to provide easy access to the out-of-game
-## menus.
+## 快捷菜单显示于游戏内，以便于访问游戏外的菜单。
 
 screen quick_menu():
 
-    # Ensure this appears on top of other screens.
+    ## 确保该菜单出现在其他界面之上，
     zorder 100
 
     if quick_menu:
@@ -432,8 +425,7 @@ screen quick_menu():
             textbutton _("设置") action ShowMenu('preferences')
 
 
-## This code ensures that the quick_menu screen is displayed in-game, whenever
-## the player has not explicitly hidden the interface.
+## 此代码确保只要用户没有主动隐藏界面，就会在游戏中显示 quick_menu 界面。
 #init python:
 #    config.overlay_screens.append("quick_menu")
 
@@ -452,13 +444,12 @@ style quick_button_text:
 
 
 ################################################################################
-# Main and Game Menu Screens
+## 标题和游戏菜单界面
 ################################################################################
 
-## Navigation screen ###########################################################
+## 导航界面 ########################################################################
 ##
-## This screen is included in the main and game menus, and provides navigation
-## to other menus, and to start the game.
+## 该界面包含在标题菜单和游戏菜单中，并提供导航到其他菜单，以及启动游戏。
 
 init python:
     def FinishEnterName():
@@ -485,7 +476,7 @@ screen navigation():
                 if persistent.playthrough == 1:
                     textbutton _("ŔŗñĮ¼»ŧþŀÂŻŕěōì«") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(FinishEnterName)))
                 else:
-                    textbutton _("新游戏") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(FinishEnterName)))
+                    textbutton _("开始游戏") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(FinishEnterName)))
 
             else:
 
@@ -500,13 +491,13 @@ screen navigation():
 
             if _in_replay:
 
-                textbutton _("End Replay") action EndReplay(confirm=True)
+                textbutton _("结束回放") action EndReplay(confirm=True)
 
             elif not main_menu:
                 if persistent.playthrough != 3:
-                    textbutton _("Main Menu") action MainMenu()
+                    textbutton _("标题界面") action MainMenu()
                 else:
-                    textbutton _("Main Menu") action NullAction()
+                    textbutton _("标题界面") action NullAction()
 
             textbutton _("设置") action [ShowMenu("preferences"), SensitiveIf(renpy.get_screen("preferences") == None)]
 
@@ -515,10 +506,10 @@ screen navigation():
 
             if renpy.variant("pc"):
 
-                ## Help isn't necessary or relevant to mobile devices.
-                textbutton _("Help") action [Help("README.html"), Show(screen="dialog", message="The help file has been opened in your browser.", ok_action=Hide("dialog"))]
+                ## “帮助”对移动设备来说并非必需或相关。
+                textbutton _("帮助") action [Help("README.html"), Show(screen="dialog", message="The help file has been opened in your browser.", ok_action=Hide("dialog"))]
 
-                ## The quit button is banned on iOS and unnecessary on Android.
+                ## 退出按钮在 iOS 上是被禁止使用的，在 Android 上也不是必要的。
                 textbutton _("Quit") action Quit(confirm=not main_menu)
         else:
             timer 1.75 action Start("autoload_yurikill")
@@ -543,15 +534,15 @@ style navigation_button_text:
     insensitive_outlines [(4, "#fce", 0, 0), (2, "#fce", 2, 2)]
 
 
-## Main Menu screen ############################################################
+## 标题菜单界面 ######################################################################
 ##
-## Used to display the main menu when Ren'Py starts.
+## 用于在 Ren'Py 启动时显示标题菜单。
 ##
-## http://www.renpy.org/doc/html/screen_special.html#main-menu
+## https://www.renpy.cn/doc/screen_special.html#main-menu
 
 screen main_menu():
 
-    # This ensures that any other menu screen is replaced.
+    ## 此语句可确保替换掉任何其他菜单界面。
     tag menu
 
     style_prefix "main_menu"
@@ -566,8 +557,7 @@ screen main_menu():
         add "menu_art_n"
         frame
 
-        ## The use statement includes another screen inside this one. The actual
-        ## contents of the main menu are in the navigation screen.
+    ## use 语句将其他的界面包含进此界面。标题界面的实际内容在导航界面中。
         use navigation
 
     if not persistent.ghost_menu:
@@ -632,14 +622,13 @@ style main_menu_title:
     size gui.title_text_size
 
 
-## Game Menu screen ############################################################
+## 游戏菜单界面 ######################################################################
 ##
-## This lays out the basic common structure of a game menu screen. It's called
-## with the screen title, and displays the background, title, and navigation.
+## 此界面列出了游戏菜单的基本共同结构。可使用界面标题调用，并显示背景、标题和导
+## 航菜单。
 ##
-## The scroll parameter can be None, or one of "viewport" or "vpgrid". When this
-## screen is intended to be used with one or more children, which are
-## transcluded (placed) inside it.
+## scroll 参数可以是 None，也可以是 viewport 或 vpgrid。当此界面与一个或多个子界
+## 面同时使用时，这些子界面将被嵌入（放置）在其中。
 
 screen game_menu_m():
     $ persistent.menu_bg_m = True
@@ -662,7 +651,7 @@ screen game_menu(title, scroll=None):
 
         hbox:
 
-            # Reserve space for the navigation section.
+            ## 导航部分的预留空间。
             frame:
                 style "game_menu_navigation_frame"
 
@@ -772,21 +761,20 @@ style return_button:
     yoffset -30
 
 
-## About screen ################################################################
+## 关于界面 ########################################################################
 ##
-## This screen gives credit and copyright information about the game and Ren'Py.
+## 此界面提供有关游戏和 Ren'Py 的制作人员和版权信息。
 ##
-## There's nothing special about this screen, and hence it also serves as an
-## example of how to make a custom screen.
+## 此界面没有什么特别之处，因此它也可以作为一个例子来说明如何制作一个自定义界
+## 面。
 
 screen about():
 
     tag menu
 
-    ## This use statement includes the game_menu screen inside this one. The
-    ## vbox child is then included inside the viewport inside the game_menu
-    ## screen.
-    use game_menu(_("Credits"), scroll="viewport"):
+    ## 此 use 语句将 game_menu 界面包含到了这个界面内。子级 vbox 将包含在
+    ## game_menu 界面的 viewport 内。
+    use game_menu(_("关于"), scroll="viewport"):
 
         style_prefix "about"
 
@@ -799,14 +787,14 @@ screen about():
                 label "[config.name!t]" xalign .5
                 text _("版本 [config.version!t]\n") xalign .5
 
-                ## gui.about is usually set in options.rpy.
+            ## gui.about 通常在 options.rpy 中设置。
                 if gui.about:
                     text "[gui.about!t]\n"
 
-                ## Do not touch/remove these unless the © or – symbol isn't available in your font.
-                ## You may add things above or below it.
-                ## If you are not going with a splashscreen option, this first line MUST stay in the mod.
-                text "使用由 GanstaKingofSA 开发，DokiMod 翻译的\n{a=https://github.com/DokiMod/DDLCModTemplate-Chinese-future}DDLC 中文 Mod 模板{/a} – 版本 4.0.1-zh。\nCopyright © 2019-" + str(datetime.date.today().year) + " Azariel Del Carmen (GanstaKingofSA). All rights reserved.\nTemplate translated by DokiMod.\n"
+                ## 请不要修改或移除本行内容，除非 © 与 – 符号没有包含在你的字体中。
+                ## 您可以在其上方或下方添加内容。
+                ## 如果你不想在启动屏幕注明，那下方这一行必须在模组中保留。
+                text "使用由 GanstaKingofSA 开发，DokiMod 翻译的 {a=https://github.com/DokiMod/DDLCModTemplate-Chinese-future}DDLC 中文 Mod 模板{/a} – 版本 4.0.1-zh。\nCopyright © 2019-" + str(datetime.date.today().year) + " Azariel Del Carmen (GanstaKingofSA). All rights reserved. Template translated by DokiMod.\n"
                 text "Doki Doki Literature Club. Copyright © 2017 Team Salvato. All rights reserved.\n"
                 text _("引擎：{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only]。\n[renpy.license!t]")
 
@@ -822,14 +810,14 @@ style about_text is gui_text
 style about_label_text:
     color "#000"
     outlines []
-    text_align 0.5
+    text_align 0
     size gui.label_text_size
 
 style about_text:
     color "#000"
     outlines []
     size gui.text_size
-    text_align 0.5
+    text_align 0
     layout "subtitle"
 
 style hyperlink_text:
@@ -838,14 +826,13 @@ style hyperlink_text:
     hover_color "#e3b6f5ff"
     hover_underline True
 
-## Load and Save screens #######################################################
+## 读取和保存界面 #####################################################################
 ##
-## These screens are responsible for letting the player save the game and load
-## it again. Since they share nearly everything in common, both are implemented
-## in terms of a third screen, file_slots.
+## 这些界面负责让用户保存游戏并能够再次读取。由于它们几乎完全一样，因此这两个界
+## 面都是以第三个界面 file_slots 来实现的。
 ##
-## https://www.renpy.org/doc/html/screen_special.html#save
-## https://www.renpy.org/doc/html/screen_special.html#load
+## https://www.renpy.cn/doc/screen_special.html#save 
+## https://www.renpy.cn/doc/screen_special.html#load
 
 screen save():
 
@@ -863,10 +850,10 @@ screen load():
 init python:
     def FileActionMod(name, page=None, **kwargs):
         if persistent.playthrough == 1 and not persistent.deleted_saves and renpy.current_screen().screen_name[0] == "load" and FileLoadable(name):
-            return Show(screen="dialog", message="File error: \"characters/sayori.chr\"\n\nThe file is missing or corrupt.",
-                ok_action=Show(screen="dialog", message="The save file is corrupt. Starting a new game.", ok_action=Function(renpy.full_restart, label="start")))
+            return Show(screen="dialog", message="文件错误：\"characters/sayori.chr\"\n\n文件已丢失或损坏。",
+                ok_action=Show(screen="dialog", message="存档已经损坏，正在开始新游戏。", ok_action=Function(renpy.full_restart, label="start")))
         elif persistent.playthrough == 3 and renpy.current_screen().screen_name[0] == "save":
-            return Show(screen="dialog", message="There's no point in saving anymore.\nDon't worry, I'm not going anywhere.", ok_action=Hide("dialog"))
+            return Show(screen="dialog", message="没有存档的必要了。\n别担心，我哪都不会去的。", ok_action=Hide("dialog"))
         else:
             return FileAction(name)
 
@@ -879,11 +866,10 @@ screen file_slots(title):
 
         fixed:
 
-            ## This ensures the input will get the enter event before any of the
-            ## buttons do.
+            ## 此代码确保输入控件在任意按钮执行前可以获取 enter 事件。
             order_reverse True
 
-            # The page name, which can be edited by clicking on a button.
+            ## 页面名称，可以通过单击按钮进行编辑。
 
             button:
                 style "page_label"
@@ -896,7 +882,7 @@ screen file_slots(title):
                     style "page_label_text"
                     value page_name_value
 
-            ## The grid of file slots.
+            ## 存档位网格。
             grid gui.file_slot_cols gui.file_slot_rows:
                 style_prefix "slot"
 
@@ -916,7 +902,7 @@ screen file_slots(title):
 
                         add FileScreenshot(slot) xalign 0.5
 
-                        text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
+                        text FileTime(slot, format=_("{#file_time}%Y-%m-%d %H:%M"), empty=_("空存档位")):
                             style "slot_time_text"
 
                         text FileSaveName(slot):
@@ -924,7 +910,7 @@ screen file_slots(title):
 
                         key "save_delete" action FileDelete(slot)
 
-            ## Buttons to access other pages.
+            ## 用于访问其他页面的按钮。
             hbox:
                 style_prefix "page"
 
@@ -939,7 +925,7 @@ screen file_slots(title):
 
                 #textbutton _("{#quick_page}Q") action FilePage("quick")
 
-                # range(1, 10) gives the numbers from 1 to 9.
+                ## range(1, 10) 给出 1 到 9 之间的数字。
                 for page in range(1, 10):
                     textbutton "[page]" action FilePage(page)
 
@@ -985,12 +971,11 @@ style slot_button_text:
     outlines []
 
 
-## Preferences screen ##########################################################
+## 设置界面 ########################################################################
 ##
-## The preferences screen allows the player to configure the game to better suit
-## themselves.
+## 设置界面允许用户配置游戏，使其更适合自己。
 ##
-## https://www.renpy.org/doc/html/screen_special.html#preferences
+## https://www.renpy.cn/doc/screen_special.html#preferences
 
 screen preferences():
 
@@ -1052,8 +1037,8 @@ screen preferences():
                             )])
                             
 
-                ## Additional vboxes of type "radio_pref" or "check_pref" can be
-                ## added here, to add additional creator-defined preferences.
+                ## 可在此处添加 radio_pref 或 check_pref 类型的额外 vbox，以添加
+                ## 额外的创建者定义的偏好设置。
 
             null height (4 * gui.pref_spacing)
 
@@ -1065,12 +1050,12 @@ screen preferences():
 
                 vbox:
 
-                    label _("Text Speed")
+                    label _("文字速度")
 
                     #bar value Preference("text speed")
                     bar value FieldValue(_preferences, "text_cps", range=180, max_is_zero=False, style="slider", offset=20)
 
-                    label _("Auto-Forward Time")
+                    label _("自动前进时间")
 
                     bar value Preference("auto-forward time")
 
@@ -1079,35 +1064,35 @@ screen preferences():
                         xoffset 15
                     
                     if config.has_music:
-                        label _("Music Volume")
+                        label _("音乐音量")
 
                         hbox:
                             bar value Preference("music volume")
 
                     if config.has_sound:
 
-                        label _("Sound Volume")
+                        label _("音效音量")
 
                         hbox:
                             bar value Preference("sound volume")
 
                             if config.sample_sound:
-                                textbutton _("Test") action Play("sound", config.sample_sound)
+                                textbutton _("测试") action Play("sound", config.sample_sound)
 
 
                     if config.has_voice:
-                        label _("Voice Volume")
+                        label _("语音音量")
 
                         hbox:
                             bar value Preference("voice volume")
 
                             if config.sample_voice:
-                                textbutton _("Test") action Play("voice", config.sample_voice)
+                                textbutton _("测试") action Play("voice", config.sample_voice)
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing
 
-                        textbutton _("Mute All"):
+                        textbutton _("全部静音"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
 
@@ -1117,7 +1102,7 @@ screen preferences():
                     if extra_settings:
                         xoffset 15   
                     vbox:
-                        label _("Language")
+                        label _("语言")
 
                         hbox:
                             viewport:
@@ -1216,18 +1201,17 @@ style slider_vbox:
     xsize 450
 
 
-## History screen ##############################################################
+## 历史界面 ########################################################################
 ##
-## This is a screen that displays the dialogue history to the player. While
-## there isn't anything special about this screen, it does have to access the
-## dialogue history stored in _history_list.
+## 这是一个向用户显示对话历史的界面。虽然此界面没有什么特别之处，但它必须访问储
+## 存在 _history_list 中的对话历史记录。
 ##
-## https://www.renpy.org/doc/html/history.html
+## https://www.renpy.cn/doc/history.html
 
 screen history():
     tag menu
     
-    ## Avoid predicting this screen, as it can be very large.
+    ## 避免预缓存此界面，因为它可能非常大。
     predict False
 
     use game_menu(_("历史"), scroll=("vpgrid" if gui.history_height else "viewport")):
@@ -1238,7 +1222,7 @@ screen history():
             
             window:
                 
-                ## This lays things out properly if history_height is None.
+                ## 此代码可确保如果 history_height 为 None 时仍可正常显示条目。
                 has fixed:
                     yfit True
 
@@ -1248,8 +1232,8 @@ screen history():
                         style "history_name"
                         substitute False
                         
-                        ## Take the color of the who text from the Character, if
-                        ## set.
+                        ## 从 Character 对象中获取叙述角色的文字颜色，如果设置了
+                        ## 的话。
                         if "color" in h.who_args:
                             text_color h.who_args["color"]
 
@@ -1258,7 +1242,7 @@ screen history():
                     substitute False
 
         if not _history_list:
-            label _("The dialogue history is empty.")
+            label _("尚无对话历史记录。")
 
 define gui.history_allow_tags = set()
 
@@ -1303,11 +1287,10 @@ style history_label_text:
     xalign 0.5
 
 
-## Help screen #################################################################
+## 帮助界面 ########################################################################
 ##
-## A screen that gives information about key and mouse bindings. It uses other
-## screens (keyboard_help, mouse_help, and gamepad_help) to display the actual
-## help.
+## 提供有关键盘和鼠标映射信息的界面。它使用其它界面（keyboard_help、mouse_help
+## 和 gamepad_help）来显示实际的帮助内容。
 
 #screen help():
 #
@@ -1462,12 +1445,12 @@ style history_label_text:
 
 
 ################################################################################
-## Additional screens
+## 其他额外界面
 ################################################################################
 
 screen name_input(message, ok_action):
 
-    ## Ensure other screens do not get input while this screen is displayed.
+    ## 显示此界面时，确保其他界面无法输入。
     modal True
 
     zorder 200
@@ -1499,7 +1482,7 @@ screen name_input(message, ok_action):
 
 screen dialog(message, ok_action):
 
-    ## Ensure other screens do not get input while this screen is displayed.
+    ## 显示此界面时，确保其他界面无法输入。
     modal True
 
     zorder 200
@@ -1532,12 +1515,11 @@ image confirm_glitch:
     pause 0.02
     repeat
 
-## Confirm screen ##############################################################
+## 确认界面 ########################################################################
 ##
-## The confirm screen is called when Ren'Py wants to ask the player a yes or no
-## question.
+## 当 Ren'Py 需要询问用户有关确定或取消的问题时，会调用确认界面。
 ##
-## http://www.renpy.org/doc/html/screen_special.html#confirm
+## https://www.renpy.cn/doc/screen_special.html#confirm
 screen confirm(message, yes_action, no_action):
 
     ## Ensure other screens do not get input while this screen is displayed.
@@ -1576,8 +1558,8 @@ screen confirm(message, yes_action, no_action):
                 #     textbutton _("Yes") action NullAction()
                 #     textbutton _("No") action Hide("confirm")
                 # else:
-                textbutton _("Yes") action yes_action
-                textbutton _("No") action no_action
+                textbutton _("确定") action yes_action
+                textbutton _("取消") action no_action
 
     ## Right-click and escape answer "no".
     #key "game_menu" action no_action
@@ -1611,12 +1593,11 @@ style confirm_button_text is navigation_button_text:
     properties gui.button_text_properties("confirm_button")
 
 
-## Skip indicator screen #######################################################
+## 快进指示界面 ######################################################################
 ##
-## The skip_indicator screen is displayed to indicate that skipping is in
-## progress.
+## skip_indicator 界面用于指示快进正在进行中。
 ##
-## https://www.renpy.org/doc/html/screen_special.html#skip-indicator
+## https://www.renpy.cn/doc/screen_special.html#skip-indicator
 screen fake_skip_indicator():
     use skip_indicator
 
@@ -1630,14 +1611,14 @@ screen skip_indicator():
         hbox:
             spacing 6
 
-            text _("Skipping")
+            text _("快进中")
 
             text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
             text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
             text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
 
 
-## This transform is used to blink the arrows one after another.
+## 此变换用于一个接一个地闪烁箭头。
 transform delayed_blink(delay, cycle):
     alpha .5
 
@@ -1669,12 +1650,11 @@ style skip_triangle:
     font "DejaVuSans.ttf"
 
 
-## Notify screen ###############################################################
+## 通知界面 ########################################################################
 ##
-## The notify screen is used to show the player a message. (For example, when
-## the game is quicksaved or a screenshot has been taken.)
+## 通知界面用于向用户显示消息。（例如，当游戏快速保存或进行截屏时。）
 ##
-## https://www.renpy.org/doc/html/screen_special.html#notify-screen
+## https://www.renpy.cn/doc/screen_special.html#notify-screen
 
 screen notify(message):
 
@@ -1707,11 +1687,11 @@ style notify_frame:
 style notify_text:
     size gui.notify_text_size
 
-## NVL screen ##################################################################
+## NVL 模式界面 ####################################################################
 ##
-## This screen is used for NVL-mode dialogue and menus.
+## 此界面用于 NVL 模式的对话和菜单。
 ##
-## http://www.renpy.org/doc/html/screen_special.html#nvl
+## https://www.renpy.cn/doc/screen_special.html#nvl
 
 
 screen nvl(dialogue, items=None):
@@ -1722,7 +1702,7 @@ screen nvl(dialogue, items=None):
         has vbox:
             spacing gui.nvl_spacing
 
-        ## Displays dialogue in either a vpgrid or the vbox.
+        ## 在 vpgrid 或 vbox 中显示对话框。
         if gui.nvl_height:
 
             vpgrid:
@@ -1764,8 +1744,7 @@ screen nvl_dialogue(dialogue):
                 text d.what:
                     id d.what_id
 
-## This controls the maximum number of NVL-mode entries that can be displayed at
-## once.
+## 此语句控制一次可以显示的 NVL 模式条目的最大数量。
 define config.nvl_list_length = 6
 
 style nvl_window is default
@@ -1868,7 +1847,7 @@ screen choose_language():
 
 translate None strings:
     old "{#language name and font}"
-    new "English"
+    new "简体中文"
 
 label choose_language:
     call screen choose_language

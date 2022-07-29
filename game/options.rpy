@@ -5,18 +5,18 @@
 ## options.rpy
 # This file customizes what your mod is and and how it starts and builds!
 
-# This controls what your mod is called.
+# 这里可以为你的 Mod 命名。
 define config.name = "DDLC 中文 Mod 模板 4.0"
 
-# This controls whether you want your mod name to show in the main menu.
-# If your mod name is big, it is suggested to turn this off.
+# 该选项控制是否在游戏主菜单展示 Mod 名字及版本号。
+# 如果 Mod 名字太长，建议禁用此选项。
 define gui.show_name = True
 
-# This controls the version number of your mod.
+# 该选项代表 Mod 的版本号。
 define config.version = "4.0.1–zh-py3"
 
-# This adds information about your mod in the About screen.
-# DDLC does not have a 'About' screen so you can leave this blank.
+# 这里是在“关于”页显示的 Mod 介绍文字。
+# 您可以在这里写点 Mod 的简介，默认情况下它将出现在“额外功能”的“关于”界面。
 define gui.about = _("")
 
 # This control the name of your mod build when you package your mod
@@ -26,13 +26,13 @@ define gui.about = _("")
 #   Example: Doki Doki Yuri Time to DokiDokiYuriTime
 define build.name = "DDLCModTemplateZh-Future"
 
-# This configures whether your mod has sound effects.
+# 该选项控制 Mod 是否包含音效。
 define config.has_sound = True
 
-# This configures whether your mod has music.
+# 该选项控制 Mod 是否包含背景音乐。
 define config.has_music = True
 
-# This configures whether your mod has voices.
+# 该选项控制 Mod 是否包含角色语音。
 define config.has_voice = False
 
 # This configures what music will play when you launch your mod and in the 
@@ -81,7 +81,7 @@ default preferences.sfx_volume = 0.75
 #   Windows: %AppData%/RenPy/
 #   macOS: $HOME/Library/RenPy/ (Un-hide the Library Folder)
 #   Linux: $HOME/.renpy/
-define config.save_directory = "DDLCModTemplateTwo-Py3"
+define config.save_directory = "DDLCModTemplateZh-v4"
 
 # This controls the window logo of your mod.
 define config.window_icon = "gui/window_icon.png"
@@ -129,7 +129,7 @@ init python:
         else:
             return (float(height) * (float(config.screen_width) / float(config.screen_height)), height)
 
-## Build configuration #########################################################
+## 构建配置 ####################################################################
 ##
 ## This section controls how Ren'Py turns your project into distribution files.
 

@@ -84,7 +84,7 @@ init python:
                 try: os.mkdir(config.basedir + "/gallery")
                 except: pass
 
-            if self.sprite: renpy.show_screen("dialog", message="Sprites cannot be exported to the gallery folder. Please try another image.", ok_action=Hide("dialog"))
+            if self.sprite: renpy.show_screen("dialog", message="精灵素材无法导出到图库文件夹，\n请尝试其他图片。", ok_action=Hide("dialog"))
             else:
                 try: 
                     renpy.file(self.file)
@@ -99,7 +99,7 @@ init python:
                     with open(os.path.join(config.basedir, "gallery", os.path.splitext(export)[0].split("/")[-1] + os.path.splitext(export)[-1]).replace("\\", "/"), "wb") as p:
                         p.write(renpy.file(export).read())
 
-                    renpy.show_screen("dialog", message='Exported "%s" to the gallery folder.' % self.name, ok_action=Hide("dialog"))
+                    renpy.show_screen("dialog", message='已将 "%s" 导出到图库目录。' % self.name, ok_action=Hide("dialog"))
 
     class GalleryThread():
         def __init__(self):
@@ -145,7 +145,7 @@ init python:
     # 'GalleryMenu' class syntax to declare a image to the gallery.
     residential = GalleryImage("bg residential_day")
     s1a = GalleryImage("sayori 1", sprite=True)
-    m1a = GalleryImage("monika 1", name="Monika", artist="Satchely", sprite=True)
+    m1a = GalleryImage("monika 1", name="莫妮卡", artist="Satchely", sprite=True)
 
 ## Gallery Screen #############################################################
 ##
@@ -200,8 +200,8 @@ screen gallery():
                         else:
                             imagebutton: 
                                 idle "mod_assets/mod_extra_images/galleryLock.png"
-                                action Show("dialog", message="This image is locked. Continue playing [config.name] to unlock this image.", ok_action=Hide("dialog"))
-                            text "Locked": 
+                                action Show("dialog", message="该图片未解锁。\n继续游玩[config.name]以解锁该图片。", ok_action=Hide("dialog"))
+                            text "未解锁": 
                                 xalign 0.5
                                 color "#555"
                                 outlines []
@@ -235,9 +235,9 @@ screen preview():
         if galleryList[current_img_name].artist:
             textbutton "?":
                 text_style "navigation_button_text"
-                action Show("dialog", message="Artist: " + galleryList[current_img_name].artist, ok_action=Hide("dialog"))
+                action Show("dialog", message="画师：" + galleryList[current_img_name].artist, ok_action=Hide("dialog"))
 
-        textbutton "E":
+        textbutton "导出":
             text_style "navigation_button_text"
             action Function(galleryList[current_img_name].export) 
 

@@ -59,6 +59,9 @@ define -2 gui.name_font = "mod_assets/font/zcoolkuaile.ttf"
 # This font is used for out-of-game text.
 define -2 gui.interface_font = "mod_assets/font/harmonyossans.ttf"
 
+# 用于 Ren'Py 引擎系统的字体。（除非你知道你在做什么，否则切勿更改。）
+define -2 gui.system_font = u'mod_assets/font/harmonyossans.ttf'
+
 # The text size of normal dialogue text.
 define -2 gui.text_size = 24
 
