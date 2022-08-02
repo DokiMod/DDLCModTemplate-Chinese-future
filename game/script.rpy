@@ -5,50 +5,50 @@
 
 label start:
 
-    # This label configures the anticheat number for the game after Act 1.
-    # It is recommended to leave this as-is and use the following in your script:
+    # 该变量控制一周目之后的反作弊 ID。
+    # 不建议变更本行代码。请考虑在你的游戏剧情脚本里使用下方代码：
     #   $ persistent.anticheat = renpy.random.randint(X, Y) 
-    #   X - The minimum number | Y - The maximum number
+    #   X - 最小值 | Y - 最大值
     $ anticheat = persistent.anticheat
 
-    # This variable sets the chapter number to 0 to use in the mod.
+    # 该变量将章节数字设置为 0，以供模组使用。
     $ chapter = 0
 
-    # This variable controls whether the player can dismiss a pause in-game.
+    # 该变量控制玩家是否能在游戏期间跳过暂停时刻。
     $ _dismiss_pause = config.developer
 
-    ## Names of the Characters
-    # These variables set up the names of the characters in the game.
-    # To add a character, use the following example below: 
-    #   $ mi_name = "Mike". 
-    # Don't forget to add the character to 'definitions.rpy'!
+    ## 角色命名
+    # 这些变量控制游戏内角色的命名。
+    # 如需添加新角色，请参考下方代码示例：
+    #   $ mi_name = "Mike"
+    # 不要忘记在 definitions.rpy 添加相应角色！
     $ s_name = "???"
-    $ m_name = "Girl 3"
-    $ n_name = "Girl 2"
-    $ y_name = "Girl 1"
+    $ m_name = "女孩 3"
+    $ n_name = "女孩 2"
+    $ y_name = "女孩 1"
 
-    # This variable controls whether the quick menu in the textbox is enabled.
+    # 该变量控制文本框展示时是否显示底部文字菜单，以及是否允许使用 Esc 显示菜单。
     $ quick_menu = True
 
-    # This variable c ontrols whether we want normal or glitched dialogue
-    # For glitched dialogue, use 'style.edited'.
+    # 该变量控制文本框内的对话文字样式风格，可定义为常规（style.normal）或干扰（style.edited）风格。
+    # 如需干扰风格，您可以使用 style.edited
     $ style.say_dialogue = style.normal
 
-    # This variable controls whether Sayori is dead. It is recommended to leave
-    # this as-is.
+    # 控制纱世里是否去世的变量。
+    # 一般不建议修改此项。
     $ in_sayori_kill = None
     
-    # These variables controls whether the player can skip dialogue or transitions.
+    # 这些变量控制是否允许玩家跳过 / 快进对话或转场。
     $ allow_skipping = True
     $ config.allow_skipping = True
 
-    ## The Main Part of the Script
-    # This is where your script code is called!
-    # 'persistent.playthrough' controls the playthrough number the player is on i.e (Act 1, 2, 3, 4)
+    ## 脚本主体
+    # 这里包含脚本的调用（call）逻辑。
+    # persistent.playthrough 变量控制游戏的周目数。
     if persistent.playthrough == 0:
 
-        # This variable sets the chapter number to X depending on the chapter
-        # your player is experiencing ATM.
+        # 该变量将章节数设置为 X。
+        # 变量设定应取决于玩家目前所经历的剧情。
         $ chapter = 0
 
         # This call statement calls your script label to be played.
@@ -57,7 +57,7 @@ label start:
         # This call statement calls the poem mini-game to be played.
         call poem
 
-        ## Day 1
+        ## 第一天
         $ chapter = 1
         call ch1_main
 
@@ -67,7 +67,7 @@ label start:
 
         call poem
 
-        ## Day 2
+        ## 第二天
         $ chapter = 2
         call ch2_main
         call poemresponse_start
@@ -75,13 +75,13 @@ label start:
 
         call poem
 
-        ## Day 3
+        ## 第三天
         $ chapter = 3
         call ch3_main
         call poemresponse_start
         call ch3_end
 
-        ## Day 4
+        ## 第四天
         $ chapter = 4
         call ch4_main
 
@@ -112,7 +112,7 @@ label start:
 
 
     elif persistent.playthrough == 2:
-        ## Day 1 - Act 2
+        ## 二周目 - 第一天
         $ chapter = 0
         call ch20_main
         label playthrough2:
@@ -126,13 +126,13 @@ label start:
                     try: renpy.file(config.basedir + "/CAN YOU HEAR ME.txt")
                     except IOError: open(config.basedir + "/CAN YOU HEAR ME.txt", "wb").write(renpy.file("CAN YOU HEAR ME.txt").read())
 
-            ## Day 2 - Act 2
+            ## 二周目 - 第二天
             $ chapter = 1
             call ch21_main
             call poemresponse_start
             call ch21_end
 
-            # This call statement calls the poem mini-game with no transition.
+            # 调用（call）诗歌小游戏，但不启用转场动画
             call poem(False)
 
             python:
@@ -143,7 +143,7 @@ label start:
                     try: renpy.file(config.basedir + "/iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.txt")
                     except IOError: open(config.basedir + "/iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.txt", "wb").write(renpy.file("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.txt").read())
 
-            ## Day 3 - Act 2
+            ## 二周目 - 第三天
             $ chapter = 2
             call ch22_main
             call poemresponse_start
@@ -151,7 +151,7 @@ label start:
 
             call poem(False)
 
-            ## Day 4 - Act 2
+            ## 二周目 - 第四天
             $ chapter = 3
             call ch23_main
 
@@ -167,7 +167,7 @@ label start:
             if persistent.demo:
                 stop music fadeout 2.0
                 scene black with dissolve_cg
-                "End of demo"
+                "试玩版结束"
                 return
 
             call ch23_end
@@ -177,7 +177,7 @@ label start:
         jump ch30_main
 
     elif persistent.playthrough == 4:
-        ## Day 1 - Act 4
+        ## 四周目 - 第一天
         $ chapter = 0
         call ch40_main
         jump credits

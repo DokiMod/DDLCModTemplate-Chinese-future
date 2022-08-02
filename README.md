@@ -54,6 +54,11 @@
 19. 现更使用 Python 3 代码！
 20. [测试] Discord Rich Presence 绝赞支持！
 
+### 中文模板 4.0 新优化
+
+1. 更规范的中文翻译。
+2. 
+
 ### Returned Features
 1. Ghost Menu. (Dan's spooky easter egg)
 2. Sayori Kill Script. (If you delete Sayori before the game starts, a new screen takes over)

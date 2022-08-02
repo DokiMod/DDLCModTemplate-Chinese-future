@@ -385,7 +385,7 @@ label splashscreen:
         if extra_settings:
             if process_check(["obs32.exe", "obs64.exe", "obs.exe", "xsplit.core.exe", "livehime.exe", "pandatool.exe", "yymixer.exe", "douyutool.exe", "huomaotool.exe", "dytool.exe", "twitchstudio.exe", "gamecaster.exe", "evcapture.exe", "kk.exe", "streamlabs obs.exe"]):
                 $ persistent.lets_play = True
-                call screen dialog("实况共玩模式已自动启用。\n该模式允许你跳过包含敏感内容的内容，同时也可以提供备选故事方案。\n设置可用性取决于 Mod 开发者是否在故事线中进行了相应配置。\n\n如需关闭实况共玩模式，请前往设置，并取消选择“实况共玩模式”。\n请注意：实况共玩模式无法改变 DDLC 在中国大陆的屏蔽现状，\n请始终避免在中国大陆平台发布 / 直播与 DDLC 有关的内容。", 
+                call screen dialog("实况共玩模式已自动启用。\n该模式允许你跳过包含敏感内容的内容，同时也可以提供备选故事方案。\n设置可用性取决于 Mod 开发者是否在故事线中进行了相应配置。\n\n如需关闭实况共玩模式，请前往设置，并取消选择“实况共玩模式”。\n请注意：实况共玩模式无法改变 DDLC 在中国大陆的屏蔽现状，\n请始终避免在中国大陆平台发布 / 直播与 DDLC 有关的内容。\n同时，无论如何，请注意安全。", 
                     [Hide("dialog"), Return()])
         scene white
 
@@ -501,7 +501,7 @@ label splashscreen:
     #     show noise:
     #         alpha 0.1
     #     with Dissolve(1.0)
-    #     show expression Text("Now everyone can be happy.", style="sayori_text"):
+    #     show expression Text("现在大家都高兴了。", style="sayori_text"):
     #         xalign 0.8
     #         yalign 0.5
     #         alpha 0.0
@@ -534,26 +534,26 @@ label warningscreen:
     show warning
     pause 3.0
 
-## This label is used when 'monika.chr' is deleted when the game starts Day 1 of
-## Act 1. This feature has been commented out for mod safety reasons but can be
-## used if needed.
+## 本 label 用于在一周目第一天，monika.chr 文件被删除后触发。
+## 本功能默认被注释，以确保模组安全，但如果你有使用需求，也可以随时取消该段注释。
+
 # label ch0_kill:
 #     $ s_name = "纱世里"
 #     show sayori 1b zorder 2 at t11
 #     s "..."
 #     s "..."
-#     s "W-What..."
+#     s "什...什么......"
 #     s 1g "..."
-#     s "This..."
-#     s "What is this...?"
-#     s "Oh no..."
-#     s 1u "No..."
-#     s "This can't be it."
-#     s "This can't be all there is."
-#     s 4w "What is this?"
-#     s "What am I?"
-#     s "Make it stop!"
-#     s "PLEASE MAKE IT STOP!"
+#     s "这..."
+#     s "这是哪里......?"
+#     s "哦......"
+#     s 1u "不......"
+#     s "不可能。"
+#     s "绝对不可能。"
+#     s 4w "这又是哪跟哪？"
+#     s "我又是谁？"
+#     s "停下来！"
+#     s "快点停下来！！！"
 
 #     $ delete_character("sayori")
 #     $ delete_character("natsuki")
@@ -562,7 +562,7 @@ label warningscreen:
 #     $ renpy.quit()
 #     return
 
-## This label checks if the save loaded matches the anti-cheat stored in the save.
+## 该 label 检测即将读取的存档是否与目前存档的反作弊码一致。
 label after_load:
     $ restore_all_characters()
     $ config.allow_skipping = allow_skipping
@@ -595,25 +595,25 @@ label after_load:
     #         $ persistent.yuri_kill = 200
     #     jump expression persistent.autoload
 
-    ## use a 'elif' here than 'if' if you uncommented the code above.
+    ## 如果你取消注释了上方的代码，请将下面的 “if” 修改为 “elif”。
     ## This statement checks if the anticheat number is equal to the 
     ## anticheat number in the save file, else it errors out.
     if anticheat != persistent.anticheat:
         stop music
         scene black
-        "The save file could not be loaded."
-        "Are you trying to cheat?"
+        "存档加载失败。"
+        "您是不是想作弊呢？"
         $ m_name = "莫妮卡"
         show monika 1 at t11
         if persistent.playername == "":
-            m "You're so funny."
+            m "真有意思啊。"
         else:
-            m "You're so funny, [persistent.playername]."
+            m "真有意思啊，[persistent.playername]。"
         $ renpy.utter_restart()
     else:
         if persistent.playthrough == 0 and not persistent.first_load and not config.developer:
             $ persistent.first_load = True
-            call screen dialog("Hint: You can use the \"Skip\" button to\nfast-forward through text you've already read.", ok_action=Return())
+            call screen dialog("提示：您可以使用“快进”按钮来快速跳过您阅读过的文字。", ok_action=Return())
     return
 
 ## This label loads the label saved in the autoload variable. 
@@ -665,7 +665,7 @@ label autoload:
 #     jump expression persistent.autoload
 
 ## This label sets the main menu music to Doki Doki Literature Club before the
-## menu starts.
+## menu starts. (This is not my favor.)
 label before_main_menu:
     $ config.main_menu_music = audio.t1
     return
