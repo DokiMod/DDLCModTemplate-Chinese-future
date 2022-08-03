@@ -417,7 +417,7 @@ screen quick_menu():
             textbutton _("历史") action ShowMenu('history')
             textbutton _("快进") action Skip()
             #textbutton _("快进") action Skip() alternate 快进(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
+            textbutton _("自动") action Preference("auto-forward", "toggle")
             textbutton _("存档") action ShowMenu('save')
             textbutton _("读档") action ShowMenu('load')
             #textbutton _("Q.Save") action QuickSave()
@@ -474,9 +474,9 @@ screen navigation():
             if main_menu:
 
                 if persistent.playthrough == 1:
-                    textbutton _("ŔŗñĮ¼»ŧþŀÂŻŕěōì«") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(FinishEnterName)))
+                    textbutton _("ŔŗñĮ¼»ŧþŀÂŻŕěōì«") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="请输入您的名称", ok_action=Function(FinishEnterName)))
                 else:
-                    textbutton _("开始游戏") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(FinishEnterName)))
+                    textbutton _("开始游戏") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="请输入您的名称", ok_action=Function(FinishEnterName)))
 
             else:
 
@@ -507,7 +507,7 @@ screen navigation():
             if renpy.variant("pc"):
 
                 ## “帮助”对移动设备来说并非必需或相关。
-                textbutton _("帮助") action [Help("README.html"), Show(screen="dialog", message="The help file has been opened in your browser.", ok_action=Hide("dialog"))]
+                textbutton _("帮助") action [Help("README.html"), Show(screen="dialog", message="帮助文档已在浏览器中打开。", ok_action=Hide("dialog"))]
 
                 ## 退出按钮在 iOS 上是被禁止使用的，在 Android 上也不是必要的。
                 textbutton _("Quit") action Quit(confirm=not main_menu)
@@ -794,7 +794,7 @@ screen about():
                 ## 请不要修改或移除本行内容，除非 © 与 – 符号没有包含在你的字体中。
                 ## 您可以在其上方或下方添加内容。
                 ## 如果你不想在启动屏幕注明，那下方这一行必须在模组中保留。
-                text "使用由 GanstaKingofSA 开发，DokiMod 翻译的 {a=https://github.com/DokiMod/DDLCModTemplate-Chinese-future}DDLC 中文 Mod 模板{/a} – 版本 4.0.1-zh 制作。\nCopyright © 2019-" + str(datetime.date.today().year) + " Azariel Del Carmen (GanstaKingofSA). All rights reserved. Template translated by DokiMod.\n"
+                text "该模组使用由 GanstaKingofSA 开发，DokiMod 翻译的 {a=https://github.com/DokiMod/DDLCModTemplate-Chinese-future}DDLC 中文 Mod 模板{/a} – 版本 4.0.1-zh 制作。\nCopyright © 2019-" + str(datetime.date.today().year) + " Azariel Del Carmen (GanstaKingofSA). All rights reserved. Template translated by DokiMod.\n"
                 text "Doki Doki Literature Club. Copyright © 2017 Team Salvato. All rights reserved.\n"
                 text _("引擎：{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only]。\n[renpy.license!t]")
 
@@ -1001,23 +1001,23 @@ screen preferences():
 
                     vbox:
                         style_prefix "radio"
-                        label _("Display")
-                        textbutton _("Windowed") action Preference("display", "window")
-                        textbutton _("Fullscreen") action Preference("display", "fullscreen")
+                        label _("显示模式")
+                        textbutton _("窗口") action Preference("display", "window")
+                        textbutton _("全屏") action Preference("display", "fullscreen")
                 if config.developer:
                     vbox:
                         style_prefix "radio"
-                        label _("Rollback Side")
-                        textbutton _("Disable") action Preference("rollback side", "disable")
-                        textbutton _("Left") action Preference("rollback side", "left")
-                        textbutton _("Right") action Preference("rollback side", "right")
+                        label _("回退位置")
+                        textbutton _("禁用") action Preference("rollback side", "disable")
+                        textbutton _("左侧") action Preference("rollback side", "left")
+                        textbutton _("右侧") action Preference("rollback side", "right")
 
                 vbox:
                     style_prefix "check"
-                    label _("Skip")
-                    textbutton _("Unseen Text") action Preference("skip", "toggle")
-                    textbutton _("After Choices") action Preference("after choices", "toggle")
-                    #textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+                    label _("快进")
+                    textbutton _("未读文本") action Preference("skip", "toggle")
+                    textbutton _("选项后继续") action Preference("after choices", "toggle")
+                    #textbutton _("忽略转场") action InvertSelected(Preference("transitions", "toggle"))
                 
                 if extra_settings:
                     vbox:

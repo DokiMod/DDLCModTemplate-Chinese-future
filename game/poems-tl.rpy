@@ -567,12 +567,4 @@ Delete Her
 我们开始了不散的筵席"""
         )
 
-
-
-    errorpoem = Poem(
-        author = "汉化组",
-        title = "出现错误",
-        text = """\
-如果你看到这里，说明汉化又出现bug了，请记录你是在哪看到这个的，并联系汉化组。"""
-        )
 # Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

@@ -11,3 +11,5 @@ game/saves
 errors.txt
 *.pyc
 *.rpymc
+
+game/original_scripts_tl/*

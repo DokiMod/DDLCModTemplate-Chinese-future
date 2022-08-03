@@ -131,23 +131,20 @@ init python:
 
 ## 构建配置 ####################################################################
 ##
-## This section controls how Ren'Py turns your project into distribution files.
+## 此部分控制 Ren'Py 如何将您的项目转变为发行版文件。
 
 init python:
-    ## The following variables take file patterns. File patterns are case-
-    ## insensitive, and matched against the path relative to the base directory,
-    ## with and without a leading /. If multiple patterns match, the first is
-    ## used.
+    ## 以下函数接受文件模式。文件模式不区分大小写，并与基础目录的相对路径相匹
+    ## 配，包括或不包括 /。如果多个模式匹配，则使用第一个模式。
     ##
-    ## In a pattern:
-    ##  * matches all characters, except the directory separator.
-    ##  ** matches all characters, including the directory separator.
+    ## 在一个模式中：
+    ## * 匹配所有字符，目录分隔符除外。
+    ## ** 匹配所有字符，包括目录分隔符。
     ##
-    ## Examples:
-    ##  "*.txt" matches txt files in the base directory.
-    ##  "game/**.ogg" matches ogg files in the game directory or any of its
-    ## subdirectories.
-    ##  "**.psd" matches psd files anywhere in the project.
+    ## 例如：
+    ## “*.txt”匹配基础目录中的 txt 文件。
+    ## “game/**.ogg”匹配游戏目录或任何子目录中的 ogg 文件。
+    ## “**.psd”匹配项目中任何位置的 psd 文件。
 
     # These variables declare the packages to build your mod that is Team Salvato
     # IPG compliant. Do not mess with these variables whatsoever.
