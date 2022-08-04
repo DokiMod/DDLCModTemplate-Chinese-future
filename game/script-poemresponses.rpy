@@ -183,8 +183,8 @@ label poemresponse_yuri:
         call expression nextscene
     return
 
-# NOTE: Monika does not use the good/bad/med poem opinion. Instead she just uses
-# 'chX_m_start' and 'chX_m_end' instead.
+# 提示：莫妮卡的鉴赏环节 label 并不使用 good/bad/med 配置，
+# 仅使用 'chX_m_start' 与 'chX_m_end'。
 label poemresponse_monika:
     scene bg club_day
     show monika 1a zorder 2 at t11
@@ -280,8 +280,8 @@ label ch2_y_end:
     y "我想表达的是我沉溺于不寻常爱好的感觉..."
     y 2v "这些东西在平时只能深藏在我的内心。"
     y "因此，我有时候会很享受写这些东西。"
-    # This if/else statement checks if you shared your poem to Natsuki already and
-    # if she loved the 1st or 2nd poem.
+    # 该 if/else 判断用于检测你是否向夏树分享过诗歌，
+    # 且夏树是否喜欢你的第一或第二首诗。
     if n_readpoem and (n_poemappeal[0] >= 0 or n_poemappeal[1] >= 0):
         mc "嗯，有意思..."
         y 2e "...？"
@@ -333,7 +333,7 @@ label ch2_y_end:
     return
 
 label ch3_y_end:
-    # This variable tells the game that you read Yuri's 3rd poem.
+    # 该变量记录您已阅读过优里的第三首诗。
     $ y_read3 = True
     # This if statement checks if Yuri's appeal is 3 or more to call her
     # special poem instead.

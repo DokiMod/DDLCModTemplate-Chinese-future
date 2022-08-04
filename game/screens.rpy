@@ -822,7 +822,7 @@ style about_text:
 
 style hyperlink_text:
     properties gui.text_properties("hyperlink", accent=True)
-    idle_color "#000"
+    color gui.accent_color
     hover_color "#e3b6f5ff"
     hover_underline True
 
@@ -831,7 +831,7 @@ style hyperlink_text:
 ## 这些界面负责让用户保存游戏并能够再次读取。由于它们几乎完全一样，因此这两个界
 ## 面都是以第三个界面 file_slots 来实现的。
 ##
-## https://www.renpy.cn/doc/screen_special.html#save 
+## https://www.renpy.cn/doc/screen_special.html#save
 ## https://www.renpy.cn/doc/screen_special.html#load
 
 screen save():
@@ -1025,14 +1025,14 @@ screen preferences():
                         label _("额外选项")
                         textbutton _("遮羞布解除") action If(persistent.uncensored_mode, 
                             ToggleField(persistent, "uncensored_mode"), 
-                            Show("confirm", message="Are you sure you want to turn on Uncensored Mode?\nDoing so will enable more adult/sensitive\ncontent in your playthrough.\n\nThis setting will be dependent on the modder if\nthey programmed these checks in their story.", 
+                            Show("confirm", message="您确定要启用“遮羞布解除”模式吗？\n启用该模式后，游戏过程中将出现更多“非子供向”内容及敏感内容。\n\n设置可用性取决于模组开发者是否在故事线中进行了相应配置。", 
                                 yes_action=[Hide("confirm"), ToggleField(persistent, "uncensored_mode")],
                                 no_action=Hide("confirm")
                             ))
                         textbutton _("实况共玩模式") action If(persistent.lets_play, 
                             ToggleField(persistent, "lets_play"),
                             [ToggleField(persistent, "lets_play"), Show("dialog", 
-                                message="您已启用实况共玩模式。\n该模式允许你跳过包含敏感内容的内容，同时也可以提供备选故事方案。\n\n该设置取决于 Mod 开发者是否在故事线中进行了相应配置。", 
+                                message="您已启用实况共玩模式。\n该模式允许你跳过包含敏感内容的内容，同时也可以提供备选故事方案。\n\n设置可用性取决于模组开发者是否在故事线中进行了相应配置。", 
                                 ok_action=Hide("dialog")
                             )])
                             
@@ -1538,9 +1538,8 @@ screen confirm(message, yes_action, no_action):
             yalign .5
             spacing 30
 
-            ## This if-else statement either shows a normal textbox or
-            ## glitched textbox if you are in Sayori's Death Scene and are
-            ## quitting the game.
+            ## 该 if/else 判断会在触发纱世里“去世场景”并试图退出游戏时
+            ## 展示错乱的退出弹窗。
             # if in_sayori_kill and message == layout.QUIT:
             #     add "confirm_glitch" xalign 0.5
             # else:
@@ -1552,8 +1551,8 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing 100
 
-                ## This if-else statement disables quitting from the quit box
-                ## if you are in Sayori's Death Scene, else normal box.
+                ## 该 if/else 判断会在触发纱世里“去世场景”并试图退出游戏时禁止通过点击“确定”按钮
+                ## 关闭游戏，其他情况下将允许正常操作。作为安全措施，默认注释该段。
                 # if in_sayori_kill and message == layout.QUIT:
                 #     textbutton _("Yes") action NullAction()
                 #     textbutton _("No") action Hide("confirm")
@@ -1598,6 +1597,8 @@ style confirm_button_text is navigation_button_text:
 ## skip_indicator 界面用于指示快进正在进行中。
 ##
 ## https://www.renpy.cn/doc/screen_special.html#skip-indicator
+
+# 三周目会用到的假“快进指示器”。
 screen fake_skip_indicator():
     use skip_indicator
 

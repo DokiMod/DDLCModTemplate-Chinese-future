@@ -27,8 +27,6 @@
 > 本模板内含的代码 / 文件仅针对需要使用 DDLC 原版素材与 Ren'Py 的 DDLC 饭制游戏或模组。本项目并不适用于与 DDLC 无关的项目。
 原版 DDLC Mod Template 与 DDLC 中文 Mod 模板均与 Team Salvato 没有任何关联。
 
-（README 还没写完，再等等）
-
 ### 绝赞功能
 1. 在 Ren'Py 8 上尽情打包模组！
 2. 兼容 Team Salvato 准则的启动屏幕。
@@ -56,8 +54,10 @@
 
 ### 中文模板 4.0 新优化
 
-1. 更规范的中文翻译。
-2. 
+1. 更规范、更完善的中文翻译，包括代码注释。
+2. 界面优化。
+
+（README 还没写完，再等等）
 
 ### Returned Features
 1. Ghost Menu. (Dan's spooky easter egg)

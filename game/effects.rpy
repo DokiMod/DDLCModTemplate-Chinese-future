@@ -1,6 +1,6 @@
 ## effects.rpy
 
-# This file defines all the effects in DDLC used in Act 2.
+# 该文件定义了二周目（甚至不止二周目）中的游戏界面特效。
 
 init python:
     # This screenshot is used to screenshot the game which is used for different

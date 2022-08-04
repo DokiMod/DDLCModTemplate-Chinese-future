@@ -25,19 +25,19 @@ init python: # This whole block runs when DDLC is started (as opposed to when th
     POEM_DISLIKE_THRESHOLD = 29
     POEM_LIKE_THRESHOLD = 45
 
-    # Building the word list
+    # 构建词语列表
     full_wordlist = []
     with renpy.file(poem_txt) as wordfile:
         for line in wordfile:
             line = line.decode("utf-8").strip()
 
-            # Ignore lines beginning with '#' and empty lines
+            # 忽略开头带 '#' 号的行，以及空行
             if line == '' or '#' in line: continue
 
             # File format: word,sPoint,nPoint,yPoint
             x = line.split(',')
             full_wordlist.append(PoemWord(x[0], float(x[1]), float(x[2]), float(x[3])))
-
+    # 引入的中英双语词语列表（txt 读取中文存在兼容性问题）
     full_wordlist_chs = [
     PoemWord("happiness 幸福",3,2,1),
     PoemWord("sadness 难过",3,2,1),
@@ -412,35 +412,35 @@ init python: # This whole block runs when DDLC is started (as opposed to when th
 ##################################################################################
 label poem(transition=True, chinese=True):
     stop music fadeout 2.0
-    if persistent.playthrough == 3: #Takes us to the glitched notebook if we're in Just Monika Mode.
+    if persistent.playthrough == 3: # 如果处在三周目则显示错乱版“只选莫妮卡”诗词游戏笔记本背景。
         scene bg notebook-glitch
     else:
         scene bg notebook
-    show screen quick_menu #This allows the player to pull up the save menu during the poem minigame.
+    show screen quick_menu # 允许玩家在小游戏过程中调用存档菜单（或者说快捷菜单）。
     if persistent.playthrough == 3: 
-        show m_sticker at sticker_mid #Just Monika.
+        show m_sticker at sticker_mid # 只选莫妮卡。
     else:
         if persistent.playthrough == 0:
-            show s_sticker at sticker_left #Only show Sayori's sticker in Act 1.
-        show n_sticker at sticker_mid #Natsuki's sticker
+            show s_sticker at sticker_left # 只在一周目显示纱世里。
+        show n_sticker at sticker_mid # 夏树的贴纸。
         if persistent.playthrough == 2 and chapter == 2:
-            show y_sticker_cut at sticker_right #Replace Yuri's sticker with the "cut arms" sticker..
+            show y_sticker_cut at sticker_right # 在二周目第三天使用“划手”的优里贴纸。
         else:
-            show y_sticker at sticker_right #Yuri's sticker
+            show y_sticker at sticker_right # 优里的常规贴纸。
         if persistent.playthrough == 2 and chapter == 2:
-            show m_sticker at sticker_m_glitch #Monika's sticker
+            show m_sticker at sticker_m_glitch # 莫妮卡的贴纸。（是的，有莫妮卡。二周目第三天限定。）
     if transition:
         with dissolve_scene_full #Gives the dissolve transition if the minigame isn't called with False.
     if persistent.playthrough == 3:
-        play music ghostmenu #Change the music in Just Monika.
+        play music ghostmenu # 将背景音乐改成“只选莫妮卡”。
     else:
         play music t4
     $ config.skipping = False
     $ config.allow_skipping = False
-    $ allow_skipping = False #Not completely sure why skipping has to be explicitly disabled, but apparently it does..
-    if persistent.playthrough == 0 and chapter == 0: #Shows the below dialogue the first time the minigame is played.
+    $ allow_skipping = False
+    if persistent.playthrough == 0 and chapter == 0: # 首次游玩诗歌小游戏时展示此提示弹窗。
         call screen dialog("写诗时间到！\n\n请从下列词语中，挑选出你觉得部员们会喜欢的几个词，组成一首诗吧！\n要是你写的诗恰好让某位成员爱不释手，那么你和她之间可能会发生什么好事哦~", ok_action=Return())
-    python: #Variable initialization here. Important to note, these initialize at the start of the mini-game.
+    python: # 小游戏开始前的初始化变量。
         poemgame_glitch = False
         played_baa = False
         progress = 1
@@ -472,24 +472,24 @@ label poem(transition=True, chinese=True):
         # Main loop for drawing and selecting words
         while True:
             ystart = 160
-##################This block of code controls the word counter.###########################################
+################## 这些代码控制已选词数的计数器。 ###########################################
             if persistent.playthrough == 2 and chapter == 2:
-                #This makes the counter do the "111111111" thing in Act 2.
+                # 在二周目第三天，将计数器改成“11111111”这种形式。
                 pstring = ""
                 for i in range(progress):
-                    pstring += "1" #Appends "1" to pstring each loop.
+                    pstring += "1" # 每次循环时，在字符串末尾添加字符“1”。
             else:
                 pstring = str(progress)
-            ui.text(pstring + "/" + str(numWords), style="poemgame_text", xpos=810, ypos=80, color='#000') #This is the word counter.
-##################This block of code puts the poem words on the screen.###################################
+            ui.text(pstring + "/" + str(numWords), style="poemgame_text", xpos=810, ypos=80, color='#000') # 控制已选词数计数器文本的 UI 属性。
+################## 这些代码用于在屏幕中显示词语。 ###################################
             for j in range(2): #In python, range() is not inclusive. So j loops from 0 to 1.
                 if j == 0: x = 440 #These two lines build columns out of the words. The first column is at 440px and the second at 680px.
                 else: x = 680
                 ui.vbox() #This is outdated UI code to create a vbox. It adds things to the vbox until it hits a ui.close()
                 for i in range(5):
-                    if persistent.playthrough == 3: #This sets all the words to "Monika" in Just Monika.
+                    if persistent.playthrough == 3: # 三周目时将所有词设置为“Monika”，以示“只选莫妮卡。”
                         s = list("Monika")
-                        for k in range(6): #This gives random corruption effects to the "Monika" words.
+                        for k in range(6): # 为“Monika”一词添加特殊错乱效果。
                             if random.randint(0, 4) == 0:
                                 s[k] = ' '
                             elif random.randint(0, 4) == 0:
@@ -505,7 +505,7 @@ label poem(transition=True, chinese=True):
 ##################This block controls what happens when words are selected.############################
             t = ui.interact()
             if not poemgame_glitch:
-                if t.glitch: #This conditional controls what happens when the glitch word is selected.
+                if t.glitch: # 控制选中随机错乱词语后发生的事情。
                     poemgame_glitch = True
                     renpy.music.play(audio.t4g)
                     #The below three lines are just a scene statement in python. It's exactly the same as 'scene bg white'.
@@ -521,16 +521,16 @@ label poem(transition=True, chinese=True):
                             renpy.show("n_sticker hop")
                         if t.yPoint >= 3:
                             renpy.show("y_sticker hop")
-                    else: #Act 2
-                        if persistent.playthrough == 2 and chapter == 2 and random.randint(0,10) == 0: renpy.show("m_sticker hop") #1/10 chance for Monika's sticker to show.
-                        elif t.nPoint > t.yPoint: renpy.show("n_sticker hop") #Since there's just Yuri and Natsuki in Act 2, whoever has the higher value for the word hops.
+                    else: #二周目
+                        if persistent.playthrough == 2 and chapter == 2 and random.randint(0,10) == 0: renpy.show("m_sticker hop") # 小概率显示莫妮卡的贴纸。
+                        elif t.nPoint > t.yPoint: renpy.show("n_sticker hop") # 二周目时仅展示优里和夏树，因此两者之中，谁喜欢的词语占的得分高，谁就跳一下。
                         elif persistent.playthrough == 2 and not persistent.seen_sticker and random.randint(0,100) == 0:
-                            renpy.show("y_sticker hopg") #"y_sticker_2g.png". 1/100 chance to see it, if we haven't seen it already.
+                            renpy.show("y_sticker hopg") # "y_sticker_2g.png"，小概率显示“跳杀”贴纸，但仅展示一次。
                             persistent.seen_sticker = True
                         elif persistent.playthrough == 2 and chapter == 2: renpy.show("y_sticker_cut hop") #Yuri's cut arms sticker.
                         else: renpy.show("y_sticker hop")
             else:
-                r = random.randint(0, 10) #1/10 chance to hear "baa", one time.
+                r = random.randint(0, 10) # 小概率在错乱态选词后播放“baa”的音效。
                 if r == 0 and not played_baa:
                     renpy.play("gui/sfx/baa.ogg")
                     played_baa = True
@@ -571,7 +571,7 @@ label poem(transition=True, chinese=True):
 
         # Poem winner always has appeal 1 (loves poem)
         exec(poemwinner[chapter][0] + "_poemappeal[chapter] = 1")
-
+    # 二周目结束小游戏后可能触发的跳杀。
     if persistent.playthrough == 2 and persistent.seen_eyes == None and renpy.random.randint(0,5) == 0:
         $ seen_eyes_this_chapter = True
         $ quick_menu = False

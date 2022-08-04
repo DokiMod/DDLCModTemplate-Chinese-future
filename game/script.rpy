@@ -155,15 +155,14 @@ label start:
             $ chapter = 3
             call ch23_main
 
-            # This if statement calls either a special poem response game or play
-            # as normal.
+            # 该 if 判断用于根据优里的好感度选择触发特殊或普通的赏诗反应。
             if y_appeal >= 3:
                 call poemresponse_start2
             else:
                 call poemresponse_start
 
-            # This if statement is leftover code from DDLC where if your game is
-            # a demo that it ends the game fully.
+            # 该 if 判断是 DDLC 的遗留代码，用于判断游戏是否为试玩版，并在试玩结束时
+            # 给出提示。
             if persistent.demo:
                 stop music fadeout 2.0
                 scene black with dissolve_cg
@@ -182,7 +181,7 @@ label start:
         call ch40_main
         jump credits
 
-# This label is where the game 'ends' during Act 1.
+# 该 label 定义了一周目的“END”画面。
 label endgame(pause_length=4.0):
     $ quick_menu = False
     stop music fadeout 2.0

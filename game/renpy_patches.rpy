@@ -15,7 +15,7 @@ init -1 python:
 
 ### DO NOT MODIFY ANYTHING BEYOND THIS POINT ###
 
-## Patches 'wmic' environment variables with 'powershell' instead.
+## 使用 'powershell' 修复 'wmic' 环境变量。
 python early:
     import os
     os.environ['wmic process get Description'] = "powershell (Get-Process).ProcessName"

@@ -385,13 +385,12 @@ label splashscreen:
         if extra_settings:
             if process_check(["obs32.exe", "obs64.exe", "obs.exe", "xsplit.core.exe", "livehime.exe", "pandatool.exe", "yymixer.exe", "douyutool.exe", "huomaotool.exe", "dytool.exe", "twitchstudio.exe", "gamecaster.exe", "evcapture.exe", "kk.exe", "streamlabs obs.exe"]):
                 $ persistent.lets_play = True
-                call screen dialog("实况共玩模式已自动启用。\n该模式允许你跳过包含敏感内容的内容，同时也可以提供备选故事方案。\n设置可用性取决于 Mod 开发者是否在故事线中进行了相应配置。\n\n如需关闭实况共玩模式，请前往设置，并取消选择“实况共玩模式”。\n请注意：实况共玩模式无法改变 DDLC 在中国大陆的屏蔽现状，\n请始终避免在中国大陆平台发布 / 直播与 DDLC 有关的内容。\n同时，无论如何，请注意安全。", 
+                call screen dialog("实况共玩模式已自动启用。\n该模式允许你跳过包含敏感内容的内容，同时也可以提供备选故事方案。\n设置可用性取决于模组开发者是否在故事线中进行了相应配置。\n\n如需关闭实况共玩模式，请前往设置，并取消选择“实况共玩模式”。\n请注意：实况共玩模式无法改变 DDLC 在中国大陆的屏蔽现状，\n请始终避免在中国大陆平台发布 / 直播与 DDLC 有关的内容。\n同时，无论如何，请注意安全。", 
                     [Hide("dialog"), Return()])
         scene white
 
-    ## This python statement controls whether the Sayori Kill Early screen shows 
-    ## in-game. This feature has been commented out for mod safety reasons but can 
-    ## be used if needed.
+    ## 该 Python 脚本包含控制纱世里“提早去世”屏幕展示的脚本。
+    ## 为保证模组安全，默认注释该段，但如果有需要，仍可解除注释，再次启用。
     # python:
     #     s_kill_early = None
     #     if persistent.playthrough == 0:
@@ -639,8 +638,7 @@ label autoload:
         $ renpy.pop_call()
     jump expression persistent.autoload
 
-## This label is used when the game starts to direct back to
-## Yuri's Death CG from the main menu.
+## 该 label 用于游戏开始时直接加载三周目优里灾厄画面并“快进”。
 # label autoload_yurikill:
 #     if persistent.yuri_kill >= 1380:
 #         $ persistent.yuri_kill = 1440
@@ -670,8 +668,8 @@ label before_main_menu:
     $ config.main_menu_music = audio.t1
     return
 
-## This label is a left-over from DDLC's development that quits the game but shows
-## a close-up Monika face before doing so.
+## 该 label 控制游戏退出后会发生的事件。
+## 但是如果此时处于“ghost menu”，退出游戏时会显示一瞬间的莫妮卡跳杀。
 label quit:
     if persistent.ghost_menu:
         hide screen main_menu
