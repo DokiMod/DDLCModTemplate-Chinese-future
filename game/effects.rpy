@@ -107,7 +107,7 @@ init python:
             renpy.redraw(self, 0)
             return render
 
-## Tear
+## Tear - 屏幕撕裂
 # This screen is called using `show screen tear()` to tear the screen.
 # Syntax
 #   number - This declares how many pieces the screen tears on-screen.

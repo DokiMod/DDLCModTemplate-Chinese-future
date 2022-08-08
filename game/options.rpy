@@ -202,7 +202,7 @@ init python:
     build.classify('**.rpa', None)
     build.classify('README.html','mod all')
     build.classify('README.linux', 'linux')
-   
+
     # This sets' README.html as documentation
     build.documentation('README.html')
 
