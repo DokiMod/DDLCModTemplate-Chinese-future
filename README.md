@@ -2,9 +2,11 @@
 
 文思泉涌，再度归来。
 
-这里是全新的 DDLC 中文 Mod 模板 4.0，基于 Azariel Del Carmen (GanstaKingofSA) 制作的 [DDLC Mod Template 4.0](https://github.com/GanstaKingofSA/DDLCModTemplate2.0/tree/python-3)，并得到了汉化。整个模板遵循 [Team Salvato 的知识产权（IP）准则](http://teamsalvato.com/ip-guidelines/) 针对饭制 Mod 的规定，并完美支持 Ren'Py 8。
+这里是全新的 DDLC 中文 Mod 模板 4.0，基于 Azariel Del Carmen (GanstaKingofSA) 制作的 [DDLC Mod Template 4.0](https://github.com/GanstaKingofSA/DDLCModTemplate2.0/tree/python-3)，并得到了汉化。整个模板遵循 [Team Salvato 的知识产权（IP）准则](http://teamsalvato.com/ip-guidelines/) 针对饭制 Mod 的规定。
 
-> 本模板目前处于实验性阶段（进展为 2%），且将 **不再支持 Ren'Py 6 / 7**。
+> 本模板目前处于实验性阶段（进展为 2%）。
+
+> 此处的模板为 Python 3 版本，是专为 Ren'Py 8 设计的。若有配合 Ren'Py 6 / 7 使用该模板的需求，请使用 [Python 2 版本](https://github.com/DokiMod/DDLCModTemplate-Chinese-future/tree/python-2)。
 
 > 请注意，本模板仅允许用于制作 DDLC 饭制模组，请勿将此模板用于制作非官方 DDLC 补丁。
 
@@ -28,12 +30,12 @@
 原版 DDLC Mod Template 与 DDLC 中文 Mod 模板均与 Team Salvato 没有任何关联。
 
 ### 绝赞功能
-1. 在 Ren'Py 8 上尽情打包模组！
+1. 轻松地在 Ren'Py 8 启动器里打包模组！
 2. 兼容 Team Salvato 准则的启动屏幕。
 3. DDLC 的原版 RPY 文件，辅以（中文？）注释。
 4. macOS `.app` 及 Linux（通过 `LinuxLauncher.sh`）平台支持。
 5. Android 平台支持！将您的模组带到移动平台游玩！\*
-    > 前提是您的模组仅使用简单的代码及 DDLC 功能。更复杂的代码及并非为移动端设计的功能可能需要进行微调，才能在移动平台运行。请参阅 *guide.pdf* （中文翻译待提供）。<!--或加入 DDMC Discord 以获得更多帮助-->
+    > 前提是您的模组仅使用简单的代码及 DDLC 功能。更复杂的代码及并非为移动端设计的功能可能需要进行微调，才能在移动平台运行。请参阅 *guide.pdf* （中文翻译待提供）。<!-- 或加入 DDMC Discord 以获得更多帮助 -->
 6. Xcode 支持！直接在 Xcode 打开项目，无需打开 Ren'Py 启动器即可编辑、运行、构建模组！
     > Note: You need to change your `RENPY_TOOL` location and the Ren'Py app location in the target scheme for Xcode. [Learn more &rsaquo;](XCODE.md)
 7. [BETA] 人称支持！让玩家随心选择符合自己的人称代词！
