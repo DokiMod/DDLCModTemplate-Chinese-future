@@ -6,7 +6,7 @@
 
 > 本模板目前处于实验性阶段（进展为 2%）。
 
-> 此处的模板为 Python 3 版本，是专为 Ren'Py 8 设计的。若有配合 Ren'Py 6 / 7 使用该模板的需求，请使用 [Python 2 版本](https://github.com/DokiMod/DDLCModTemplate-Chinese-future/tree/python-2)。
+> 此处的模板为 Python 3 版本，是专为 Ren'Py 8 设计的。若有配合 Ren'Py 6 / 7 使用该模板的需求，请使用 [Python 2 版本](https://github.com/DokiMod/DDLCModTemplate-Chinese-future/tree/python-2)。Python 2 版本的开发仍在进行。
 
 > 请注意，本模板仅允许用于制作 DDLC 饭制模组，请勿将此模板用于制作非官方 DDLC 补丁。
 
