@@ -4,7 +4,7 @@
 
 这里是全新的 DDLC 中文 Mod 模板 4.0，基于 Azariel Del Carmen (GanstaKingofSA) 制作的 [DDLC Mod Template 4.0](https://github.com/GanstaKingofSA/DDLCModTemplate2.0/tree/python-3)，并得到了汉化。整个模板遵循 [Team Salvato 的知识产权（IP）准则](http://teamsalvato.com/ip-guidelines/) 针对饭制 Mod 的规定。
 
-> 本模板目前处于实验性阶段（进展为 2%）。
+> 本模板目前处于实验性阶段（进展为 2%），因此暂不建议使用于正式工程。
 
 > 此处的模板为 Python 3 版本，是专为 Ren'Py 8 设计的。若有配合 Ren'Py 6 / 7 使用该模板的需求，请使用 [Python 2 版本](https://github.com/DokiMod/DDLCModTemplate-Chinese-future/tree/python-2)。Python 2 版本的开发仍在进行。
 
@@ -40,9 +40,9 @@
     > Note: You need to change your `RENPY_TOOL` location and the Ren'Py app location in the target scheme for Xcode. [Learn more &rsaquo;](XCODE.md)
 7. [BETA] 人称支持！让玩家随心选择符合自己的人称代词！
     > See *mod_extras/pronouns.rpy* in the `game` folder for a example on how to use this feature.
-8. 绝赞·完美“蓝屏死机”画面！轻松显示“蓝屏死机”画面，支持各类操作系统！
+8. 绝赞·完美“蓝屏死机”画面！轻松显示“蓝屏死机”画面，支持各类操作系统！（甚至还有在做的汉化版本！）
 9. “遮羞布解除”模式！有些内容不能放，但是至少，这里有个开关。
-10. “实况共玩”模式！更好的隐藏主播信息方案，更不止于此；支持自动识别部分直播 / 录屏软件（包括 OBS Studio、Twitch Studio、Gamecaster 等）并自动启用实况模式。
+10. “实况共玩”模式！更好的隐藏主播信息方案，且可以提供适合更多观众的备选剧情方案；支持自动识别部分直播 / 录屏软件（包括 OBS Studio、Twitch Studio、Gamecaster、哔哩哔哩直播姬[^1]、Bandicam 等）并自动启用实况模式。
 11. 图库菜单！让玩家随心浏览你的画作，更支持导出。
 12. 成就菜单！简单的成就解决方案；立即设置一些成就，让玩家完整体验你的模组作品！
 13. 菜单按钮颜色定制！为菜单提示添加不同配色的按钮，满足你的需求。
@@ -81,3 +81,5 @@ Copyright © 2019-2022 Azariel Del Carmen (GanstaKingofSA). All rights reserved.
 Template translated by DokiMod.
 
 Doki Doki Literature Club, the Doki Doki Literature Club code, is the property of Team Salvato (Dan Salvato LLC). Copyright © 2017 Team Salvato. All rights reserved.
+
+[^1]: 实况共玩模式无法改变 DDLC 在中国大陆的屏蔽现状，因此请不要在中国大陆平台发布 / 直播与 DDLC 有关的内容。同时，无论如何，请注意安全。
