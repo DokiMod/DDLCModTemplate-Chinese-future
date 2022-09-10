@@ -7,7 +7,7 @@ python early:
     
     class NotRenPyEight(Exception):
         def __str__(self):
-            return "DDLC 中文 Mod 模板 4.0 仅支持 Ren'Py 8。\n请您在使用该版本模板开发模组之前切换到 Ren'Py 8 进行开发，旧版本的 Ren'Py 已不受支持。"
+            return "您使用的模板分支 Ren'Py 8。\n请您在使用该版本模板开发模组之前切换到 Ren'Py 8 进行开发，或者，请切换到针对 Ren'Py 6 / 7 的 pyython-2 分支版本。"
 
     class DDLCRPAsMissing(Exception):
         def __init__(self, archive):
