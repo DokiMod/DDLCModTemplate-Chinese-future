@@ -46,8 +46,8 @@ label start:
     # This is where your script code is called!
     # 'persistent.playthrough' controls the playthrough number the player is on i.e (Act 1, 2, 3, 4)
     
-    # REMOVE THIS LINE WHEN YOU HAVE MADE A STORY SCRIPT FILE AND CALLED IT HERE
-    call screen dialog(message="It seems that you are trying to run the mod template as a new game with no story.\nThis is a template, not an actual mod. Please code a story for your mod, call it in \'script.rpy\', and try again.", ok_action=MainMenu(confirm=False))
+    # 当你写好故事脚本文件后，再删除下面这一行，然后在此调用（call）您的脚本
+    call screen dialog(message="您似乎在尝试直接将 Mod 模板作为无故事剧情的新游戏运行。\n这是一个模组模板，而不是一个实际的模组。请为您的模组编写故事，并在“script.rpy”中调用（call）脚本后重试。", ok_action=MainMenu(confirm=False))
 
     ## Example on calling scripts from DDLC.
     # if persistent.playthrough == 0:
