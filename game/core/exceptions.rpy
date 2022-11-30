@@ -18,4 +18,4 @@ python early:
 
     class IllegalModLocation(Exception):
         def __str__(self):
-            return "DDLC Mod 及其工程无法运行于云端文件夹。请移动您的工程文件夹，然后重试。"
+            return "DDLC Mod 及其工程无法运行于 OneDrive 等云端文件夹。请移动您的工程文件夹，然后重试。"

@@ -8,7 +8,17 @@
 
 > 此处的模板为 Python 3 版本，是专为 Ren'Py 8 设计的。若有配合 Ren'Py 6 / 7 使用该模板的需求，请使用 [Python 2 版本](https://github.com/DokiMod/DDLCModTemplate-Chinese-future/tree/python-2)。Python 2 版本的开发仍在进行。
 
+### 免责声明
+> 本模板内含的代码 / 文件仅针对需要使用 DDLC 原版素材与 Ren'Py 的 DDLC 饭制游戏或模组。本项目并不适用于与 DDLC 无关的项目。
+
+原版 DDLC Mod Template 与 DDLC 中文 Mod 模板均与 Team Salvato 没有任何关联。
+
 > 请注意，本模板仅允许用于制作 DDLC 饭制模组，请勿将此模板用于制作非官方 DDLC 补丁。
+
+   - <u>Team Salvato</u>
+      > The template code/files are designed for original DDLC fan games and mods that use DDLC assets with Ren'Py. It is not meant for non-DDLC projects. The DDLC Mod Template is not afilliated in anyway with Team Salvato.
+   - <u>GanstaKingofSA</u>
+      > You may not use the template to make unofficial DDLC patchers, fixes, etc.
 
 ## **署名要求**
 
@@ -22,12 +32,8 @@
 这里还有一些备选（但也十分欢迎）的署名方案（在改）：
    1. A custom splash screen that features the Team Salvato logo (and/or your mod logo) and a `GanstaKingofSA` logo (which can be found [here](.github/IMAGES)).
    2. A small mention in the game's disclaimer saying that this mod was not possible without using GanstaKingofSA's mod template.
-   3. A presplash screen that contains a `GanstaKingofSA` logo (which can be found [here](.github/IMAGES)).
+   3. A presplash screen that contains a `GanstaKingofSA` logo (which can be found [here](.github/IMAGES/Logos)).
    4. Present a custom idea to me for approval either through Discord or Reddit.
-
-### Team Salvato 免责声明
-> 本模板内含的代码 / 文件仅针对需要使用 DDLC 原版素材与 Ren'Py 的 DDLC 饭制游戏或模组。本项目并不适用于与 DDLC 无关的项目。
-原版 DDLC Mod Template 与 DDLC 中文 Mod 模板均与 Team Salvato 没有任何关联。
 
 ### 绝赞功能
 1. 轻松地在 Ren'Py 8 启动器里打包模组！
@@ -53,6 +59,7 @@
 18. 针对部分 Ren'Py 版本及 Windows 功能的补丁。
 19. 现更使用 Python 3 代码！
 20. [测试] Discord Rich Presence 绝赞支持！
+21. 新转场特效。
 
 ### 中文模板 4.0 新优化
 
@@ -63,18 +70,18 @@
 （README 还没写完，再等等）
 
 ### Returned Features
-1. Ghost Menu. (Dan's spooky easter egg)
-2. Sayori Kill Script. (If you delete Sayori before the game starts, a new screen takes over)
-3. Monika Kill Script. (If you delete Monika after the game loads, a new script plays out)
-4. Special Poems! (The random poems in DDLC that appear in Act 2)
-5. Poem Responses! (The Doki's respond to your poems!)
+1. Ghost Menu (Dan's spooky easter egg).
+2. Sayori Kill Script (plays if Sayori is deleted before the game starts).
+3. Monika Kill Script (plays if Monika is deleted before a new game starts).
+4. Special Poems (The random poems in DDLC that appear in Act 2) <u>[now improved!]</u>.
+5. Poem Responses! (The responses the girls give you about your poem).
 
 ### 开始制作模组
 Follow the steps listed [here](https://ganstakingofsa.github.io/information/guides/Installing-the-Mod-Template-Recent.html) in order to install the mod template.
 > Once you finished writing your script, select *Build Distributions*. Uncheck all the options, check only `Ren'Py 8 DDLC Compliant Mod` and click <u>Build</u>. This will create a cross-platform *Renpy8-DDLCMod* ZIP file with your mod files.
 
 ### Getting Started For Android Porting/Modding
-Refer to [*guide.pdf*](guide.pdf) for more in-depth information about making your mod work on Android.
+Refer to [*The DDLC Android Mod Guide*](./Documentation/Android%20Mod%20Guide.pdf) for more in-depth information about making your mod work on Android.
 > For older templates, refer to the PDF in your templates' ZIP file as the latest guide may not match your current template.
 
 Copyright © 2019-2022 Azariel Del Carmen (GanstaKingofSA). All rights reserved.  

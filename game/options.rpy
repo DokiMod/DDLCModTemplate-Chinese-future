@@ -1,4 +1,4 @@
-﻿## This template version is 4.0.2. When asked to provide the template version
+﻿## This template version is 4.1.0. When asked to provide the template version
 ## you are using, give them this version number. 
 ### DO NOT REMOVE OR CHANGE THE ABOVE COMMENT. ###
 
@@ -13,7 +13,7 @@ define config.name = "DDLC 中文 Mod 模板 4.0"
 define gui.show_name = True
 
 # 该选项代表 Mod 的版本号。
-define config.version = "4.0.2–zh-py3"
+define config.version = "4.1.0–zh-py3"
 
 # 这里是在“关于”页显示的 Mod 介绍文字。
 # 您可以在这里写点 Mod 的简介，默认情况下它将出现在“额外功能”的“关于”界面。
@@ -180,6 +180,7 @@ init python:
     build.classify("game/presplash.png", "scripts all")
     build.classify("game/**.rpyc", "scripts all")
     build.classify("game/README.md", None)
+    build.classify("game/**/README.md", None)
     build.classify("game/**.txt", "scripts all")
     build.classify("game/**.chr", "scripts all")
     build.classify("game/advanced_scripts/**","scripts all") ## Backwards Compatibility
