@@ -18,7 +18,7 @@ label lockdown_check:
 
     $ version = renpy.version()
 
-    if renpy.version_tuple > (8, 0, 3, 22083102):
+    if renpy.version_tuple > (8, 0, 3, 22090809):
 
         scene black
         "{b}警告：{/b}您目前用于开发 DDLC 模组的 Ren'Py SDK 未经过模组兼容性测试。"
