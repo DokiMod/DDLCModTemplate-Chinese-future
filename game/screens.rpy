@@ -416,7 +416,7 @@ screen quick_menu():
             #textbutton _("Back") action Rollback()
             textbutton _("历史") action ShowMenu('history')
             textbutton _("快进") action Skip()
-            #textbutton _("快进") action Skip() alternate 快进(fast=True, confirm=True)
+            #textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("自动") action Preference("auto-forward", "toggle")
             textbutton _("存档") action ShowMenu('save')
             textbutton _("读档") action ShowMenu('load')
@@ -791,10 +791,10 @@ screen about():
                 if gui.about:
                     text "[gui.about!t]\n"
 
-                ## 请不要修改或移除本行内容，除非 © 与 – 符号没有包含在你的字体中。
+                ## 请不要修改或移除下方内容，除非 © 与 – 符号没有包含在你的字体中。
                 ## 您可以在其上方或下方添加内容。
-                ## 如果你不想在启动屏幕注明，那下方这一行必须在模组中保留。
-                text "该模组使用由 GanstaKingofSA 开发，DokiMod 翻译的 {a=https://github.com/DokiMod/DDLCModTemplate-Chinese-future}DDLC 中文 Mod 模板{/a} – 版本 4.0.1-zh 制作。\nCopyright © 2019-" + str(datetime.date.today().year) + " Azariel Del Carmen (GanstaKingofSA). All rights reserved. Template translated by DokiMod.\n"
+                ## 如果你不想在启动屏幕注明，那下方这几行必须在模组中保留。
+                text "该模组使用由 GanstaKingofSA 开发，DokiMod 翻译的 {a=https://github.com/DokiMod/DDLCModTemplate-Chinese-future}DDLC 中文 Mod 模板{/a} – 版本 4.1.0-zh-py3 制作。\nCopyright © 2019-" + str(datetime.date.today().year) + " Azariel Del Carmen (GanstaKingofSA). All rights reserved.\nTemplate translated by DokiMod.\n"
                 text "Doki Doki Literature Club. Copyright © 2017 Team Salvato. All rights reserved.\n"
                 text _("引擎：{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only]。\n[renpy.license!t]")
 

@@ -1,24 +1,21 @@
 # DDLC 中文 Mod 模板 4.0
 
-文思泉涌，再度归来。
+文思泉涌，再度归来。这里是全新的 DDLC 中文 Mod 模板 4.0，基于 Azariel Del Carmen (GanstaKingofSA) 制作的 [DDLC Mod Template 4.0](https://github.com/GanstaKingofSA/DDLCModTemplate2.0/tree/python-3)，并得到了汉化。整个模板遵循 [Team Salvato 的知识产权（IP）准则](http://teamsalvato.com/ip-guidelines/) 针对饭制模组的规定。
 
-这里是全新的 DDLC 中文 Mod 模板 4.0，基于 Azariel Del Carmen (GanstaKingofSA) 制作的 [DDLC Mod Template 4.0](https://github.com/GanstaKingofSA/DDLCModTemplate2.0/tree/python-3)，并得到了汉化。整个模板遵循 [Team Salvato 的知识产权（IP）准则](http://teamsalvato.com/ip-guidelines/) 针对饭制 Mod 的规定。
+> 本模板目前处于实验性阶段（进展为 2%），因此暂不建议使用于正式工程。（虽然硬着头皮用也不是不可以 —— imgradeone）
 
-> 本模板目前处于实验性阶段（进展为 2%），因此暂不建议使用于正式工程。
-
-> 此处的模板为 Python 3 版本，是专为 Ren'Py 8 设计的。若有配合 Ren'Py 6 / 7 使用该模板的需求，请使用 [Python 2 版本](https://github.com/DokiMod/DDLCModTemplate-Chinese-future/tree/python-2)。Python 2 版本的开发仍在进行（0%）。
+> 此处的模板为 Python 3 版本，是专为 Ren'Py 8 设计的。若有配合 Ren'Py 6 / 7 使用该模板的需求，请等待 [Python 2 版本](https://github.com/DokiMod/DDLCModTemplate-Chinese-future/tree/python-2) 完成开发。Python 2 版本将在之后开始开发，抱歉给您带来不便。
 
 ### 免责声明
-> 本模板内含的代码 / 文件仅针对需要使用 DDLC 原版素材与 Ren'Py 的 DDLC 饭制游戏或模组。本项目并不适用于与 DDLC 无关的项目。
-
-原版 DDLC Mod Template 与 DDLC 中文 Mod 模板均与 Team Salvato 没有任何关联。
 
 > 请注意，本模板仅允许用于制作 DDLC 饭制模组，请勿将此模板用于制作非官方 DDLC 补丁。
 
    - <u>Team Salvato</u>
-      > The template code/files are designed for original DDLC fan games and mods that use DDLC assets with Ren'Py. It is not meant for non-DDLC projects. The DDLC Mod Template is not afilliated in anyway with Team Salvato.
+      > 本模板内含的代码 / 文件仅针对需要使用 DDLC 原版素材与 Ren'Py 的 DDLC 饭制游戏或模组。请勿将此模板用于制作与 DDLC 无关的项目。原版 DDLC Mod Template 与 DDLC 中文 Mod 模板均与 Team Salvato 没有任何关联。
    - <u>GanstaKingofSA</u>
-      > You may not use the template to make unofficial DDLC patchers, fixes, etc.
+      > 请勿将此模板用于制作非官方 DDLC 补丁。
+   - <u>DokiMod</u>
+      > 使用 DDLC 中文 Mod 模板并不意味着您可以在中国大陆的平台正常发布与 DDLC 有关的内容。
 
 ## **署名要求**
 
@@ -66,10 +63,11 @@
 1. 更规范、更完善的中文翻译，包括代码注释。
 2. 界面优化。
 3. 支持原生 Ren'Py 文件结构方式。
+4. 拓展了直播 / 录屏软件的识别列表（包括 Twitch Studio、Gamecaster、哔哩哔哩直播姬[^1]、Bandicam 等）。
 
 （README 还没写完，再等等）
 
-### Returned Features
+### 回归功能
 1. Ghost Menu (Dan's spooky easter egg).
 2. Sayori Kill Script (plays if Sayori is deleted before the game starts).
 3. Monika Kill Script (plays if Monika is deleted before a new game starts).
@@ -77,6 +75,8 @@
 5. Poem Responses! (The responses the girls give you about your poem).
 
 ### 开始制作模组
+> 针对模板 4.0 的中文文档仍在制作。
+
 Follow the steps listed [here](https://ganstakingofsa.github.io/information/guides/Installing-the-Mod-Template-Recent.html) in order to install the mod template.
 > Once you finished writing your script, select *Build Distributions*. Uncheck all the options, check only `Ren'Py 8 DDLC Compliant Mod` and click <u>Build</u>. This will create a cross-platform *Renpy8-DDLCMod* ZIP file with your mod files.
 
