@@ -37,7 +37,7 @@ label poemresponse_start:
         $ skip_poem = False
         
         # 该 if/else 判断检测游戏是否处于二周目，以便展示
-        # 二周目特殊诗歌。
+        # 二周目特别诗篇。
         if persistent.playthrough == 2:
             $ pt = "2"
         else:

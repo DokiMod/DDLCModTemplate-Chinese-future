@@ -64,6 +64,7 @@
 2. 界面优化。
 3. 支持原生 Ren'Py 文件结构方式。
 4. 拓展了直播 / 录屏软件的识别列表（包括 Twitch Studio、Gamecaster、哔哩哔哩直播姬[^1]、Bandicam 等）。
+5. 合入了来自 DDLC Plus 的（新）汉化文本（感谢 Riotloc 团队以及社区汉化参与者）。
 
 （README 还没写完，再等等）
 
