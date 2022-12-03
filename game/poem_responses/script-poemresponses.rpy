@@ -1,7 +1,7 @@
 ## script-poemresponses.rpy - 赏诗反应
 
 # This is where the Doki's respond to how much they like your poem.
-# 二周目使用在 original_scripts_tl 文件夹下的 script-poemresponses2 脚本文件。
+# 二周目使用在 Original Script Files 文件夹下的 script-poemresponses2 脚本文件。
 
 label poemresponse_start:
     # These variables set the amount of poems read by the player and disables
