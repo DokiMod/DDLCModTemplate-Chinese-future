@@ -1,10 +1,10 @@
-# Contents
+# 内容
 
-## console.rpy
-This file defines the code for Monika's console that appears at the end of Act Two through Act Four.
+## console.rpy - 终端
+该文件包含莫妮卡从二周目结尾到四周目展示的终端窗口的代码定义。
 
-## glitchtext.rpy
-This file defines the glitched/corrupted text seen in Act Two through Four of the game.
+## glitchtext.rpy - 乱码文本
+该文件包含从二周目结尾到四周目展示的乱码 / 篡改文本的代码定义。
 
-## poems_special.rpy
-This file defines the special poems that the player can see during Act Two. Only three poems are ever shown to the player which are selected at random by `splash.rpy` (in *definitions* folder).
+## poems_special.rpy - 特别诗篇（特殊诗歌）
+该文件定义了二周目中玩家可看到的特别诗篇。其中，游戏只会随机抽取 3 首特别诗篇展示给玩家，相应代码由 `splash.rpy` 定义（请前往 *definitions* 文件夹中查看）。

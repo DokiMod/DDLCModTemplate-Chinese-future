@@ -1,5 +1,5 @@
 init python:
-    poem_y1_chs = Poem(
+    poem_y1_chs_legacy = Poem(
         author = "yuri",
         title = "灯下魅影",
         text = """\
@@ -13,7 +13,7 @@ init python:
 我方幻醒"""
         )
 
-    poem_y2_chs = Poem(
+    poem_y2_chs_legacy = Poem(
         author = "yuri",
         title = "浣熊",
         text = """\
@@ -50,7 +50,7 @@ init python:
 浮现的鲜血就如同条件刺激般，宣示着我的存在"""
         )
 
-    poem_y3_chs = Poem(
+    poem_y3_chs_legacy = Poem(
         author = "yuri",
         title = "海滩",
         text = """\
@@ -77,7 +77,7 @@ init python:
 向前漂流，让我永归于大地"""
         )
 
-    poem_y3b_chs = Poem(
+    poem_y3b_chs_legacy = Poem(
         author = "yuri",
         title = "灯下魅影 Part. 2",
         text = """\
@@ -103,7 +103,7 @@ init python:
 青绿色的幽灵，我的琥珀心"""
         )
 
-    poem_y22_chs = Poem(
+    poem_y22_chs_legacy = Poem(
         author = "yuri",
         yuri_2 = True,
         title = "轮",
@@ -111,7 +111,7 @@ init python:
 转动的轮。带动着轴。磨削。机头。线性变速箱。坠落的天空。七支圣刑柱。停靠的船。异世界的洞口。粗绳上的细绳。撕裂的马具。抛物型变速箱。膨胀的宇宙。被齿轮滑动控制的时间。上帝的存在。向着四面八方游动。溺水。用血写的祈祷文。在吞噬时间的人眼巨蛇上的祷文。连接所有活物眼睛的线。千变万化的圣刑柱。指数型变速箱。繁星爆炸的天空。上帝自证上帝的存在。六维旋转的轮子。四十个齿轮和一个滴答作响的钟。随着星球转动每次行走一秒的钟。每秒滴答滴答滴答四十次的钟。圣刑柱的机头连接着、停靠到另一个世界的船的存在。时钟里千变万化的血书。吞噬时光的祷词连接着四十个齿轮的天空与四面八方睁开的眼睛。呼吸着的变速箱。呼吸着的机头。呼吸着的船。呼吸着的洞口。呼吸着的蛇。呼吸着的神。呼吸着的血。呼吸着的圣刑柱。呼吸着的人眼。呼吸着的时间。呼吸着的祷词。呼吸着的天空。呼吸着的轮。"""
         )
 
-    poem_y23_chs = Poem(
+    poem_y23_chs_legacy = Poem(
             author = "yuri",
             yuri_3 = True,
             title = "mdpnfbo,jrfp",
@@ -166,7 +166,7 @@ The lust continues to linger through my veins. An ache in my muscles stems from 
 unreleased tension experienced by my entire body. Her Third Eye is drawing me closer."""
         )
 
-    poem_n1_chs = Poem(
+    poem_n1_chs_legacy = Poem(
         author = "natsuki",
         title = "雄鹰能飞翔",
         text = """\
@@ -180,7 +180,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 但也仅此而已了"""
         )
 
-    poem_n2_chs = Poem(
+    poem_n2_chs_legacy = Poem(
         author = "natsuki",
         title = "艾米爱蜘蛛",
         text = """\
@@ -218,7 +218,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 我要去告诉其他人"""
         )
 
-    poem_n2b_chs = Poem(
+    poem_n2b_chs_legacy = Poem(
         author = "natsuki",
         title = "552B5byA5L2g55qE5aSp55y8IA==",
         text = """\
@@ -235,7 +235,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 5oqR5Yi25LiN5L2P5LqG44CCIA=="""
         )
 
-    poem_n3_chs = Poem(
+    poem_n3_chs_legacy = Poem(
         author = "natsuki",
         title = "我会成为你的沙滩",
         text = """\
@@ -274,7 +274,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 那你终能寻回自爱"""
         )
 
-    poem_n3b_chs = Poem(
+    poem_n3b_chs_legacy = Poem(
         author = "natsuki",
         title = "因为有你",
         text = """\
@@ -306,7 +306,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 因为有你，因为有你，因为有你"""
         )
 
-    poem_n23_chs = Poem(
+    poem_n23_chs_legacy = Poem(
         author = "natsuki",
         title = "",
         text = """\
@@ -327,7 +327,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 全靠你了，感谢读完！"""
         )
 
-    poem_s1_chs = Poem(
+    poem_s1_chs_legacy = Poem(
         author = "sayori",
         title = "亲爱的阳光",
         text = """\
@@ -347,7 +347,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 我想吃早餐了。"""
         )
 
-    poem_s2_chs = Poem(
+    poem_s2_chs_legacy = Poem(
         author = "sayori",
         title = "瓶子",
         text = """\
@@ -392,7 +392,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 在脑海响彻"""
         )
 
-    poem_s3_chs = Poem(
+    poem_s3_chs_legacy = Poem(
         author = "sayori",
         title = "%",
         text = """\
@@ -411,7 +411,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 它只会暂停。"""
         )
 
-    poem_m1_chs = Poem(
+    poem_m1_chs_legacy = Poem(
         author = "monika",
         title = "墙上的洞",
         text = """\
@@ -431,7 +431,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 而他，在另一头，往里窥视着"""
         )
 
-    poem_m21_chs = Poem(
+    poem_m21_chs_legacy = Poem(
         author = "monika",
         title = "墙上的洞",
         text = """\
@@ -450,7 +450,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 我吞没我的恐惧，挥起了笔"""
         )
 
-    poem_m2_chs = Poem(
+    poem_m2_chs_legacy = Poem(
         author = "monika",
         title = "Save Me",
         text = """\
@@ -478,7 +478,7 @@ Load Me
     """
         )
 
-    poem_m22_chs = Poem(
+    poem_m22_chs_legacy = Poem(
         author = "monika",
         title = "Save Me",
         text = """\
@@ -506,7 +506,7 @@ Delete Her
     """
         )
 
-    poem_m3_chs = Poem(
+    poem_m3_chs_legacy = Poem(
         author = "monika",
         title = "全知的女士",
         text = """\
@@ -551,7 +551,7 @@ Delete Her
 一阵呼吸，她再次将我吹起，我搭上了另一阵风"""
         )
 
-    poem_m4_chs = Poem(
+    poem_m4_chs_legacy = Poem(
         author = "monika",
         title = "Happy End",
         text = """\
@@ -566,5 +566,3 @@ Delete Her
 最终，
 我们开始了不散的筵席"""
         )
-
-# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

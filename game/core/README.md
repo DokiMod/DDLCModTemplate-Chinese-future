@@ -1,4 +1,4 @@
-# Contents
+# 内容
 > These files are crucial to DDLC/the mod template itself. **DO NOT** delete or edit these files (except `credits.rpy`) unless you know what you are doing.
 
 ## 0imports.rpy

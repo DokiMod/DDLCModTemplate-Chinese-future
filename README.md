@@ -1,14 +1,15 @@
 # DDLC 中文 Mod 模板 4.0
 
-文思泉涌，再度归来。这里是全新的 DDLC 中文 Mod 模板 4.0，基于 Azariel Del Carmen (GanstaKingofSA) 制作的 [DDLC Mod Template 4.0](https://github.com/GanstaKingofSA/DDLCModTemplate2.0/tree/python-3)，并得到了汉化。整个模板遵循 [Team Salvato 的知识产权（IP）准则](http://teamsalvato.com/ip-guidelines/) 针对饭制模组的规定。
+文思泉涌，再度归来。这里是全新的 DDLC 中文 Mod 模板 4.0，基于 Azariel Del Carmen (GanstaKingofSA) 制作的 [DDLC Mod Template 4.0](https://github.com/GanstaKingofSA/DDLCModTemplate2.0/tree/python-3)，并得到了汉化。整个模板遵循 [Team Salvato 的知识产权（IP）准则](https://teamsalvato.com/ip-guidelines/) 针对饭制模组的规定。
 
-> 本模板目前处于实验性阶段（进展为 2%），因此暂不建议使用于正式工程。（虽然硬着头皮用也不是不可以 —— imgradeone）
+> 本模板目前处于实验性阶段（进展为 2%），且使用了不太稳定的 Python 3 / Ren'Py 8，因此暂不建议使用于正式工程。（虽然硬着头皮用也不是不可以 —— imgradeone）  
+> 目前如有需要，我们推荐您使用 [DDLC 中文 Mod 模板 2.0](https://github.com/imgradeone/DDLCModTemplate-Chinese-next) 进行新模组开发。
 
 > 此处的模板为 Python 3 版本，是专为 Ren'Py 8 设计的。若有配合 Ren'Py 6 / 7 使用该模板的需求，请等待 [Python 2 版本](https://github.com/DokiMod/DDLCModTemplate-Chinese-future/tree/python-2) 完成开发。Python 2 版本将在之后开始开发，抱歉给您带来不便。
 
-### 免责声明
+> ~~万一 Dan 鸽把原版游戏升级到 Ren'Py 8 了呢 —— imgradeone~~
 
-> 请注意，本模板仅允许用于制作 DDLC 饭制模组，请勿将此模板用于制作非官方 DDLC 补丁。
+### 免责声明
 
    - <u>Team Salvato</u>
       > 本模板内含的代码 / 文件仅针对需要使用 DDLC 原版素材与 Ren'Py 的 DDLC 饭制游戏或模组。请勿将此模板用于制作与 DDLC 无关的项目。原版 DDLC Mod Template 与 DDLC 中文 Mod 模板均与 Team Salvato 没有任何关联。
@@ -64,6 +65,7 @@
 2. 界面优化。
 3. 支持原生 Ren'Py 文件结构方式。
 4. 拓展了直播 / 录屏软件的识别列表（包括 Twitch Studio、Gamecaster、哔哩哔哩直播姬[^1]、Bandicam 等）。
+5. 合入了来自 DDLC Plus 的（新）汉化文本（感谢 Riotloc 团队以及社区汉化参与者）。
 
 （README 还没写完，再等等）
 
@@ -71,7 +73,7 @@
 1. Ghost Menu (Dan's spooky easter egg).
 2. Sayori Kill Script (plays if Sayori is deleted before the game starts).
 3. Monika Kill Script (plays if Monika is deleted before a new game starts).
-4. Special Poems (The random poems in DDLC that appear in Act 2) <u>[now improved!]</u>.
+4. 特别诗篇 (The random poems in DDLC that appear in Act 2) <u>[now improved!]</u>.
 5. Poem Responses! (The responses the girls give you about your poem).
 
 ### 开始制作模组

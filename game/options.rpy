@@ -12,8 +12,11 @@ define config.name = "DDLC 中文 Mod 模板 4.0"
 # 如果 Mod 名字太长，建议禁用此选项。
 define gui.show_name = True
 
-# 该选项代表 Mod 的版本号。
-define config.version = "4.1.0–zh-py3"
+# 该选项代表模组的版本号。
+define config.version = "4.1.0–zh-py3-patch1"
+
+# 该选项代表 Mod 模板的版本号。**请勿修改**
+define template.version = "4.1.0–zh-py3-patch1"
 
 # 这里是在“关于”页显示的 Mod 介绍文字。
 # 您可以在这里写点 Mod 的简介，默认情况下它将出现在“额外功能”的“关于”界面。

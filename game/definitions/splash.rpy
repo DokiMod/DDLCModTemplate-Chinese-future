@@ -665,7 +665,7 @@ label autoload:
 ## This label sets the main menu music to Doki Doki Literature Club before the
 ## menu starts. (This is not my favor.)
 label before_main_menu:
-    $ config.main_menu_music = audio.t1
+    # $ config.main_menu_music = audio.t1 # 所以为什么要默认重置主菜单 bgm 啊（恼
     return
 
 ## 该 label 控制游戏退出后会发生的事件。

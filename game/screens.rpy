@@ -75,10 +75,10 @@ style normal is default:
 style input:
     color gui.accent_color
 
-style hyperlink_text:
-    color gui.accent_color
-    hover_color gui.hover_color
-    hover_underline True
+# style hyperlink_text:
+#     color gui.hyperlink_color
+#     hover_color gui.hover_color
+#     hover_underline True
 
 style splash_text:
     size 24
@@ -794,9 +794,9 @@ screen about():
                 ## 请不要修改或移除下方内容，除非 © 与 – 符号没有包含在你的字体中。
                 ## 您可以在其上方或下方添加内容。
                 ## 如果你不想在启动屏幕注明，那下方这几行必须在模组中保留。
-                text "该模组使用由 GanstaKingofSA 开发，DokiMod 翻译的 {a=https://github.com/DokiMod/DDLCModTemplate-Chinese-future}DDLC 中文 Mod 模板{/a} – 版本 4.1.0-zh-py3 制作。\nCopyright © 2019-" + str(datetime.date.today().year) + " Azariel Del Carmen (GanstaKingofSA). All rights reserved.\nTemplate translated by DokiMod.\n"
+                text "该模组使用由 GanstaKingofSA 开发，DokiMod 翻译的 {a=https://github.com/DokiMod/DDLCModTemplate-Chinese-future}DDLC 中文 Mod 模板{/a} 制作。\nCopyright © 2019-" + str(datetime.date.today().year) + " Azariel Del Carmen (GanstaKingofSA).\nAll rights reserved.\n\nTemplate translated by DokiMod.\n"
                 text "Doki Doki Literature Club. Copyright © 2017 Team Salvato. All rights reserved.\n"
-                text _("引擎：{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only]。\n[renpy.license!t]")
+                text _("引擎：{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] / Mod 模板版本：[template.version!t] \n[renpy.license!t]")
 
 
 ## This is redefined in options.rpy to add text to the about screen.
@@ -814,15 +814,15 @@ style about_label_text:
     size gui.label_text_size
 
 style about_text:
-    color "#000"
-    outlines []
+    color "#fff"
+    outlines [(2, "#000000aa", 0, 0)]
     size gui.text_size
     text_align 0
     layout "subtitle"
 
 style hyperlink_text:
     properties gui.text_properties("hyperlink", accent=True)
-    color gui.accent_color
+    color gui.hyperlink_color
     hover_color "#e3b6f5ff"
     hover_underline True
 

@@ -20,7 +20,7 @@ define -2 gui.activate_sound_glitch = "gui/sfx/select_glitch.ogg" # Glitched Sou
 # These variables set the color for DDLC's text in-game.
 
 # This color is used to label and highlight text.
-define -2 gui.accent_color = '#fcc'
+define -2 gui.accent_color = '#fff'
 
 # This color is used for a text button when it is neither selected nor hovered.
 define -2 gui.idle_color = '#aaaaaa'
@@ -46,6 +46,9 @@ define -2 gui.hover_muted_color = '#9999c1'
 # This color is used for dialogue and menu choice text.
 define -2 gui.text_color = '#ffffff'
 define -2 gui.interface_text_color = '#ffffff'
+
+# 该定义用于配置超链接颜色。
+define -2 gui.hyperlink_color = '#fcc'
 
 # Fonts and Font Sizes
 # These variables set the font and its' size for DDLC's text in-game.
