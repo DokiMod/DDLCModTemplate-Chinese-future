@@ -10,3 +10,5 @@ game/saves
 .DS_Store
 errors.txt
 *.pyc
+*.rpymc
+project.json
