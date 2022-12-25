@@ -10,7 +10,7 @@ This file contains the code to call a fake Blue Screen of Death/Kernel Panic to 
 
 This file contains the code for the extras menu that allows multiple screens to be selected without cluttering the main options.
 
-## gallery.rpy
+## gallery.rpy - 图库
 
 This file contains the code for the gallery menu that shows backgrounds and sprites from your mod.
 
