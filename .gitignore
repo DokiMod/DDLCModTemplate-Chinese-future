@@ -12,6 +12,4 @@ errors.txt
 *.pyc
 *.rpymc
 gallery/*
-
-game/original_scripts_tl/*
 project.json

@@ -5,6 +5,8 @@
 > 本模板目前处于实验性阶段（进展为 2%），且使用了不太稳定的 Python 3 / Ren'Py 8，因此暂不建议使用于正式工程。（虽然硬着头皮用也不是不可以 —— imgradeone）  
 > 目前如有需要，我们推荐您使用 [DDLC 中文 Mod 模板 2.0](https://github.com/imgradeone/DDLCModTemplate-Chinese-next) 进行新模组开发。
 
+> Additionaly [here](./CREDITS.md) are all the contributors that contributed to the mod template.
+
 > 此处的模板为 Python 3 版本，是专为 Ren'Py 8 设计的。若有配合 Ren'Py 6 / 7 使用该模板的需求，请等待 [Python 2 版本](https://github.com/DokiMod/DDLCModTemplate-Chinese-future/tree/python-2) 完成开发。Python 2 版本将在之后开始开发，抱歉给您带来不便。
 
 > ~~万一 Dan 鸽把原版游戏升级到 Ren'Py 8 了呢 —— imgradeone~~
@@ -37,27 +39,24 @@
 1. 轻松地在 Ren'Py 8 启动器里打包模组！
 2. 兼容 Team Salvato 准则的启动屏幕。
 3. DDLC 的原版 RPY 文件，辅以（中文？）注释。
-4. macOS `.app` 及 Linux（通过 `LinuxLauncher.sh`）平台支持。
+4. macOS `.app` 及 Linux 平台支持。
 5. Android 平台支持！将您的模组带到移动平台游玩！\*
     > 前提是您的模组仅使用简单的代码及 DDLC 功能。更复杂的代码及并非为移动端设计的功能可能需要进行微调，才能在移动平台运行。请参阅 *guide.pdf* （中文翻译待提供）。<!-- 或加入 DDMC Discord 以获得更多帮助 -->
-6. Xcode 支持！直接在 Xcode 打开项目，无需打开 Ren'Py 启动器即可编辑、运行、构建模组！
-    > Note: You need to change your `RENPY_TOOL` location and the Ren'Py app location in the target scheme for Xcode. [Learn more &rsaquo;](XCODE.md)
-7. [BETA] 人称支持！让玩家随心选择符合自己的人称代词！
+6. [BETA] 人称支持！让玩家随心选择符合自己的人称代词！
     > See *mod_extras/pronouns.rpy* in the `game` folder for a example on how to use this feature.
-8. 绝赞·完美“蓝屏死机”画面！轻松显示“蓝屏死机”画面，支持各类操作系统！（甚至还有在做的汉化版本！）
-9. “遮羞布解除”模式！有些内容不能放，但是至少，这里有个开关。
-10. “实况共玩”模式！更好的隐藏主播信息方案，且可以提供适合更多观众的备选剧情方案；支持自动识别部分直播 / 录屏软件（包括 OBS Studio、Twitch Studio、Gamecaster、哔哩哔哩直播姬[^1]、Bandicam 等）并自动启用实况模式。
-11. 图库菜单！让玩家随心浏览你的画作，更支持导出。
-12. 成就菜单！简单的成就解决方案；立即设置一些成就，让玩家完整体验你的模组作品！
-13. 菜单按钮颜色定制！为菜单提示添加不同配色的按钮，满足你的需求。
-14. 全自动界面配色！无需修改资源文件，直接修改界面配色。
-15. 额外功能菜单！一个按钮，通往更多丰富功能！
-16. Terra's in-depth Poem Game guide!
-17. 由 Yagamirai01 贡献的 NVL 支持！
-18. 针对部分 Ren'Py 版本及 Windows 功能的补丁。
-19. 现更使用 Python 3 代码！
-20. [测试] Discord Rich Presence 绝赞支持！
-21. 新转场特效。
+7. 绝赞·完美“蓝屏死机”画面！轻松显示“蓝屏死机”画面，支持各类操作系统！（甚至还有在做的汉化版本！）
+8. “遮羞布解除”模式！有些内容不能放，但是至少，这里有个开关。
+9. “实况共玩”模式！更好的隐藏主播信息方案，且可以提供适合更多观众的备选剧情方案；支持自动识别部分直播 / 录屏软件（包括 OBS Studio、Twitch Studio、Gamecaster、哔哩哔哩直播姬[^1]、Bandicam 等）并自动启用实况模式。
+10. 图库菜单！让玩家随心浏览你的画作，更支持导出。
+11. 成就菜单！简单的成就解决方案；立即设置一些成就，让玩家完整体验你的模组作品！
+12. 菜单按钮颜色定制！为菜单提示添加不同配色的按钮，满足你的需求。
+13. 全自动界面配色！无需修改资源文件，直接修改界面配色。
+14. Terra's in-depth Poem Game guide!
+15. 由 Yagamirai01 贡献的 NVL 支持！
+16. 针对部分 Ren'Py 版本及 Windows 功能的补丁。
+17. 现更使用 Python 3 代码！
+18. [测试] Discord Rich Presence 绝赞支持！
+19. 新转场特效。
 
 ### 中文模板 4.0 新优化
 
