@@ -65,6 +65,7 @@
 3. 支持原生 Ren'Py 文件结构方式。
 4. 拓展了直播 / 录屏软件的识别列表（包括 Twitch Studio、Gamecaster、哔哩哔哩直播姬[^1]、Bandicam 等）。
 5. 合入了来自 DDLC Plus 的（新）汉化文本（感谢 Riotloc 团队以及社区汉化参与者）。
+6. 整合社区版、Plus 版诗歌内容翻译。
 
 （README 还没写完，再等等）
 
@@ -86,7 +87,7 @@ Refer to [*The DDLC Android Mod Guide*](./Documentation/Android%20Mod%20Guide.pd
 > For older templates, refer to the PDF in your templates' ZIP file as the latest guide may not match your current template.
 
 Copyright © 2019-2022 Azariel Del Carmen (GanstaKingofSA). All rights reserved.  
-Template translated by DokiMod.
+Template translated and modified by DokiMod.
 
 Doki Doki Literature Club, the Doki Doki Literature Club code, is the property of Team Salvato (Dan Salvato LLC). Copyright © 2017 Team Salvato. All rights reserved.
 
