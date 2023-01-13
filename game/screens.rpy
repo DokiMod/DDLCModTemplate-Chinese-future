@@ -30,6 +30,7 @@ default translations = scan_translations()
 # Enables the ability to add more settings in the game such as uncensored mode.
 default extra_settings = True
 default enable_extras_menu = True
+default enable_languages = True
 
 ## Color Styles
 ################################################################################
@@ -74,11 +75,6 @@ style normal is default:
 
 style input:
     color gui.accent_color
-
-# style hyperlink_text:
-#     color gui.hyperlink_color
-#     hover_color gui.hover_color
-#     hover_underline True
 
 style splash_text:
     size 24
@@ -452,12 +448,13 @@ style quick_button_text:
 ## 该界面包含在标题菜单和游戏菜单中，并提供导航到其他菜单，以及启动游戏。
 
 init python:
-    def FinishEnterName():
+    def FinishEnterName(launchGame=True):
         if not player: return
         persistent.playername = player
         renpy.save_persistent()
         renpy.hide_screen("name_input")
-        renpy.jump_out_of_context("start")
+        if launchGame:
+            renpy.jump_out_of_context("start")
 
 screen navigation():
 
@@ -795,6 +792,7 @@ screen about():
                 ## 您可以在其上方或下方添加内容。
                 ## 如果你不想在启动屏幕注明，那下方这几行必须在模组中保留。
                 text "该模组使用由 GanstaKingofSA 开发，DokiMod 翻译的 {a=https://github.com/DokiMod/DDLCModTemplate-Chinese-future}DDLC 中文 Mod 模板{/a} 制作。\nCopyright © 2019-" + str(datetime.date.today().year) + " Azariel Del Carmen (GanstaKingofSA).\nAll rights reserved.\n\nTemplate translated by DokiMod.\n"
+
                 text "Doki Doki Literature Club. Copyright © 2017 Team Salvato. All rights reserved.\n"
                 text _("引擎：{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] / Mod 模板版本：[template.version!t] \n[renpy.license!t]")
 
@@ -970,6 +968,285 @@ style slot_button_text:
     color "#666"
     outlines []
 
+screen viewframe_options(title):
+
+    style_prefix "viewframe"
+
+    add "gui/overlay/confirm.png"
+
+    frame:
+
+        vbox:
+            xalign .5
+            yalign .5
+            spacing 2
+
+            label title
+
+            null height 10
+
+            transclude
+
+style viewframe_frame is confirm_frame
+style viewframe_label is confirm_prompt:
+    xalign 0.5
+style viewframe_label_text is confirm_prompt_text
+style viewframe_button is confirm_button
+style viewframe_button_text is confirm_button_text
+style viewframe_text is confirm_prompt_text:
+    size 20
+    yalign 0.7
+
+## Windowed Resolutions
+## Windowed Resolutions allow players to scale the game to different resolutions.
+## Uncomment the below #'s to enable this.
+# screen confirm_res(old_res):
+    
+#     ## Ensure other screens do not get input while this screen is displayed.
+#     modal True
+
+#     zorder 200
+
+#     style_prefix "confirm"
+
+#     add "gui/overlay/confirm.png"
+
+#     frame:
+
+#         vbox:
+#             xalign .5
+#             yalign .5
+#             spacing 30
+
+#             ## This if-else statement either shows a normal textbox or
+#             ## glitched textbox if you are in Sayori's Death Scene and are
+#             ## quitting the game.
+#             # if in_sayori_kill and message == layout.QUIT:
+#             #     add "confirm_glitch" xalign 0.5
+#             # else:
+#             label _("Would you like to keep these changes?"):
+#                 style "confirm_prompt"
+#                 xalign 0.5
+
+#             add DynamicDisplayable(res_text_timer) xalign 0.5
+
+#             hbox:
+#                 xalign 0.5
+#                 spacing 100
+
+#                 ## This if-else statement disables quitting from the quit box
+#                 ## if you are in Sayori's Death Scene, else normal box.
+#                 # if in_sayori_kill and message == layout.QUIT:
+#                 #     textbutton _("Yes") action NullAction()
+#                 #     textbutton _("No") action Hide("confirm")
+#                 # else:
+#                 textbutton _("Yes") action Hide()
+#                 textbutton _("No") action [Function(renpy.set_physical_size, old_res), Hide()]
+    
+#     timer 5.0 action [Function(renpy.set_physical_size, old_res), Hide()]
+
+# init python:
+#     def res_text_timer(st, at):
+#         if st <= 5.0:
+#             time_left = str(round(5.0 - st))
+#             return Text(time_left, style="confirm_prompt"), 0.1
+#         else: return Text("0", style="confirm_prompt"), 0.0
+
+#     def set_physical_resolution(res):
+#         old_res = renpy.get_physical_size()
+#         renpy.set_physical_size(res)
+#         renpy.show_screen("confirm_res", old_res=old_res)
+
+screen display_options():
+
+    style_prefix "viewframe"
+
+    modal True
+
+    zorder 150
+
+    use viewframe_options(_("Display Resolutions")):
+
+        default scale = renpy.get_physical_size()
+
+        vbox:
+            xmaximum 500
+            ysize 120
+            viewport:
+                style_prefix "radio"
+                scrollbars "vertical"
+                mousewheel True
+                draggable True
+                has vbox
+
+                textbutton "1280x720" action SetScreenVariable("scale", (1280, 720))
+                textbutton "1600x900" action SetScreenVariable("scale", (1600, 900))
+
+        null height 10
+
+        hbox:
+            xalign 0.5
+            spacing 100
+
+            textbutton _("Reset") action [Hide(), Function(renpy.reset_physical_size)]
+            textbutton _("Set") action [Hide(), Function(set_physical_resolution, scale)]
+
+screen text_options():
+    modal True
+
+    zorder 150
+
+    use viewframe_options(_("文本设定")):
+        style_prefix "radio"
+        label _("回退位置")
+        hbox:
+            textbutton _("禁用") action Preference("rollback side", "disable")
+            textbutton _("左侧") action Preference("rollback side", "left")
+            textbutton _("右侧") action Preference("rollback side", "right")
+
+        label _("快进")
+        hbox:
+            textbutton _("未读文本") action Preference("skip", "toggle")
+            textbutton _("选项后继续") action Preference("after choices", "toggle")
+            #textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+
+        hbox:
+            spacing 10
+            label _("文字速度")
+            text str(preferences.text_cps) style "viewframe_text"
+
+        bar value FieldValue(_preferences, "text_cps", range=180, max_is_zero=False, style="slider", offset=20) xsize 500
+
+        hbox:
+            spacing 10
+            label _("自动前进时间")
+            text str(round(preferences.afm_time)) style "viewframe_text"
+
+        bar value Preference("auto-forward time") xsize 500
+
+        null height 10
+
+        hbox:
+            xalign 0.5
+            spacing 100
+
+            textbutton _("OK") action Hide() style "confirm_button"
+
+screen audio_options():
+    style_prefix "viewframe"
+
+    modal True
+
+    zorder 150
+
+    use viewframe_options(_("声音设定")):
+        style_prefix "slider"
+        if config.has_music:
+            hbox:
+                spacing 10
+                label _("音乐音量")
+                text str(round(preferences.music_volume * 100)) style "viewframe_text"
+
+            hbox:
+                bar value Preference("music volume") xsize 500
+
+        if config.has_sound:
+
+            hbox:
+                spacing 10
+                label _("音效音量")
+                text str(round(preferences.sfx_volume * 100)) style "viewframe_text"
+
+            hbox:
+                bar value Preference("sound volume") xsize 500
+
+                if config.sample_sound:
+                    textbutton _("测试") action Play("sound", config.sample_sound)
+
+        if config.has_voice:
+            hbox:
+                spacing 10
+                label _("语音音量")
+                text str(round(preferences.get_volume("voice") * 100)) style "viewframe_text"
+
+            hbox:
+                bar value Preference("voice volume")
+
+                if config.sample_voice:
+                    textbutton _("测试") action Play("voice", config.sample_voice) 
+
+        if config.has_music or config.has_sound or config.has_voice:
+            null height gui.pref_spacing
+
+            textbutton _("全部静音"):
+                action Preference("all mute", "toggle")
+                style "mute_all_button"
+
+        null height 10
+
+        hbox:
+            xalign 0.5
+            spacing 100
+
+            textbutton _("返回") action Hide() style "confirm_button"
+
+screen extra_options():
+    style_prefix "viewframe"
+
+    modal True
+
+    zorder 150
+
+    use viewframe_options(_("额外设定")):
+        style_prefix "radio"
+
+        label _("游戏模式")
+        hbox:
+            textbutton _("遮羞布解除") action If(persistent.uncensored_mode, 
+                ToggleField(persistent, "uncensored_mode"), 
+                Show("confirm", message="您确定要启用“遮羞布解除”模式吗？\n启用该模式后，游戏过程中将出现更多“非子供向”内容及敏感内容。\n\n设置可用性取决于模组开发者是否在故事线中进行了相应配置。", 
+                    yes_action=[Hide("confirm"), ToggleField(persistent, "uncensored_mode")],
+                    no_action=Hide("confirm")
+                ))
+            textbutton _("实况共玩模式") action If(persistent.lets_play, 
+                ToggleField(persistent, "lets_play"),
+                [ToggleField(persistent, "lets_play"), Show("dialog", 
+                    message="您已启用实况共玩模式。\n该模式允许你跳过包含敏感内容的内容，同时也可以提供备选故事方案。\n\n设置可用性取决于模组开发者是否在故事线中进行了相应配置。", 
+                    ok_action=Hide("dialog")
+                )])
+
+        if not renpy.android:
+            label _("Discord RPC")
+
+            python:
+                connect_status = "未连接"
+                if RPC.rpc_connected:
+                    connect_status = "已连接"
+
+            textbutton "Enable" action [ToggleField(persistent, "enable_discord"), 
+                If(persistent.enable_discord, Function(RPC.close), Function(RPC.connect, reset=True))]
+            
+            text "连接状态：[connect_status]" style "main_menu_version" xalign 0.0
+
+            if persistent.enable_discord and not RPC.rpc_connected:
+                textbutton "重新连接" action Function(RPC.connect, reset=True) style "viewframe_button"
+
+        label _("玩家名称")
+        vbox:
+            style_prefix "confirm"
+            if player == "":
+                text "当前名称：未设定" style "viewframe_text"
+            else:
+                text "当前名称：[player]" style "viewframe_text"
+            textbutton "修改名称" action Show(screen="name_input", message="请输入您的名称", ok_action=Function(FinishEnterName, launchGame=False)) xoffset 10
+
+        null height 10
+
+        hbox:
+            xalign 0.5
+            spacing 100
+
+            textbutton _("好的") action Hide() style "confirm_button"
 
 ## 设置界面 ########################################################################
 ##
@@ -989,12 +1266,10 @@ screen preferences():
     use game_menu(_("设置"), scroll="viewport"):
 
         vbox:
-            if extra_settings:
-                xoffset 35
-            else:
-                xoffset 50
+            xoffset 50
 
-            hbox:
+            vbox:
+                spacing 5
                 box_wrap True
 
                 if renpy.variant("pc"):
@@ -1002,115 +1277,30 @@ screen preferences():
                     vbox:
                         style_prefix "radio"
                         label _("显示模式")
-                        textbutton _("窗口") action Preference("display", "window")
-                        textbutton _("全屏") action Preference("display", "fullscreen")
-                if config.developer:
+                        hbox:
+                            textbutton _("窗口") action Preference("display", "window")
+                            textbutton _("全屏") action Preference("display", "fullscreen")
+                            # textbutton _("More") action Show("display_options")
+
+                vbox:
+                    style_prefix "radio"
+                    label _("游戏设定")
+                    hbox:
+                        textbutton _("文本") action Show("text_options")
+                        textbutton _("声音") action Show("audio_options")
+                        textbutton _("额外") action Show("extra_options")
+
+                if enable_languages and translations:
                     vbox:
                         style_prefix "radio"
-                        label _("回退位置")
-                        textbutton _("禁用") action Preference("rollback side", "disable")
-                        textbutton _("左侧") action Preference("rollback side", "left")
-                        textbutton _("右侧") action Preference("rollback side", "right")
-
-                vbox:
-                    style_prefix "check"
-                    label _("快进")
-                    textbutton _("未读文本") action Preference("skip", "toggle")
-                    textbutton _("选项后继续") action Preference("after choices", "toggle")
-                    #textbutton _("忽略转场") action InvertSelected(Preference("transitions", "toggle"))
-                
-                if extra_settings:
-                    vbox:
-                        style_prefix "check"
-                        label _("额外选项")
-                        textbutton _("遮羞布解除") action If(persistent.uncensored_mode, 
-                            ToggleField(persistent, "uncensored_mode"), 
-                            Show("confirm", message="您确定要启用“遮羞布解除”模式吗？\n启用该模式后，游戏过程中将出现更多“非子供向”内容及敏感内容。\n\n设置可用性取决于模组开发者是否在故事线中进行了相应配置。", 
-                                yes_action=[Hide("confirm"), ToggleField(persistent, "uncensored_mode")],
-                                no_action=Hide("confirm")
-                            ))
-                        textbutton _("实况共玩模式") action If(persistent.lets_play, 
-                            ToggleField(persistent, "lets_play"),
-                            [ToggleField(persistent, "lets_play"), Show("dialog", 
-                                message="您已启用实况共玩模式。\n该模式允许你跳过包含敏感内容的内容，同时也可以提供备选故事方案。\n\n设置可用性取决于模组开发者是否在故事线中进行了相应配置。", 
-                                ok_action=Hide("dialog")
-                            )])
-                            
-
-                ## 可在此处添加 radio_pref 或 check_pref 类型的额外 vbox，以添加
-                ## 额外的创建者定义的偏好设置。
-
-            null height (4 * gui.pref_spacing)
-
-            hbox:
-                if extra_settings:
-                    xoffset 15
-                style_prefix "slider"
-                box_wrap True
-
-                vbox:
-
-                    label _("文字速度")
-
-                    #bar value Preference("text speed")
-                    bar value FieldValue(_preferences, "text_cps", range=180, max_is_zero=False, style="slider", offset=20)
-
-                    label _("自动前进时间")
-
-                    bar value Preference("auto-forward time")
-
-                vbox:
-                    if extra_settings:
-                        xoffset 15
-                    
-                    if config.has_music:
-                        label _("音乐音量")
-
-                        hbox:
-                            bar value Preference("music volume")
-
-                    if config.has_sound:
-
-                        label _("音效音量")
-
-                        hbox:
-                            bar value Preference("sound volume")
-
-                            if config.sample_sound:
-                                textbutton _("测试") action Play("sound", config.sample_sound)
-
-
-                    if config.has_voice:
-                        label _("语音音量")
-
-                        hbox:
-                            bar value Preference("voice volume")
-
-                            if config.sample_voice:
-                                textbutton _("测试") action Play("voice", config.sample_voice)
-
-                    if config.has_music or config.has_sound or config.has_voice:
-                        null height gui.pref_spacing
-
-                        textbutton _("全部静音"):
-                            action Preference("all mute", "toggle")
-                            style "mute_all_button"
-
-            if translations:
-                hbox:
-                    style_prefix "radio"
-                    if extra_settings:
-                        xoffset 15   
-                    vbox:
                         label _("语言")
-
                         hbox:
                             viewport:
                                 mousewheel True
                                 scrollbars "vertical"
-                                ysize 110
+                                ysize 100
                                 has vbox
-                                
+
                                 for tran in translations:
                                     vbox:
                                         for tlid, tlname in tran:

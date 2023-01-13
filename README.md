@@ -36,27 +36,28 @@
    4. Present a custom idea to me for approval either through Discord or Reddit.
 
 ### 绝赞功能
-1. 轻松地在 Ren'Py 8 启动器里打包模组！
-2. 兼容 Team Salvato 准则的启动屏幕。
+1. 使用 Ren'Py 8 构建，且兼容 Team Salvato 内容的模组 + 启动屏幕（免责声明）！
 3. DDLC 的原版 RPY 文件，辅以（中文？）注释。
-4. macOS `.app` 及 Linux 平台支持。
-5. Android 平台支持！将您的模组带到移动平台游玩！\*
-    > 前提是您的模组仅使用简单的代码及 DDLC 功能。更复杂的代码及并非为移动端设计的功能可能需要进行微调，才能在移动平台运行。请参阅 *guide.pdf* （中文翻译待提供）。<!-- 或加入 DDMC Discord 以获得更多帮助 -->
-6. [BETA] 人称支持！让玩家随心选择符合自己的人称代词！
+4. 支持 macOS、Linux* 与 Android**！
+   > \* - Linux 用户请使用 `LinuxLauncher.sh` 来运行模组。
+
+   > \*\* - 若您的模组使用简易代码与 Mod 模板内置功能。更复杂的代码、手机端不友好的功能可能需要修改。See *Android Mod Guide.pdf* or visit the DDMC Discord for additional help.
+6. Xcode 支持！直接在 Xcode 打开工程，无需启动 Ren'Py 启动器即可编辑、构建、测试模组！
+    > 备注：您需要在 Xcode 里修改 `RENPY_TOOL`，使其指向您安装的 Ren'Py SDK 应用位置。[Learn more &rsaquo;](XCODE.md)
+7. [BETA] 人称支持！让玩家随心选择符合自己的人称代词！
     > See *mod_extras/pronouns.rpy* in the `game` folder for a example on how to use this feature.
-7. 绝赞·完美“蓝屏死机”画面！轻松显示“蓝屏死机”画面，支持各类操作系统！（甚至还有在做的汉化版本！）
-8. “遮羞布解除”模式！有些内容不能放，但是至少，这里有个开关。
-9. “实况共玩”模式！更好的隐藏主播信息方案，且可以提供适合更多观众的备选剧情方案；支持自动识别部分直播 / 录屏软件（包括 OBS Studio、Twitch Studio、Gamecaster、哔哩哔哩直播姬[^1]、Bandicam 等）并自动启用实况模式。
-10. 图库菜单！让玩家随心浏览你的画作，更支持导出。
-11. 成就菜单！简单的成就解决方案；立即设置一些成就，让玩家完整体验你的模组作品！
-12. 菜单按钮颜色定制！为菜单提示添加不同配色的按钮，满足你的需求。
-13. 全自动界面配色！无需修改资源文件，直接修改界面配色。
-14. Terra's in-depth Poem Game guide!
-15. 由 Yagamirai01 贡献的 NVL 支持！
-16. 针对部分 Ren'Py 版本及 Windows 功能的补丁。
-17. 现更使用 Python 3 代码！
-18. [测试] Discord Rich Presence 绝赞支持！
-19. 新转场特效。
+8. 绝赞·完美“蓝屏死机”画面！轻松显示“蓝屏死机”画面，支持各类操作系统！（甚至还有在做的汉化版本！）
+9. “遮羞布解除”和“实况共玩”模式！增强内容容许度，同时保护实况主的信息，更支持自动识别部分直播 / 录屏软件（包括 OBS Studio、Twitch Studio、Gamecaster、哔哩哔哩直播姬[^1]、Bandicam 等）并自动启用实况模式。
+10. 图库菜单、成就菜单！让玩家欣赏您的画作，并且在游玩过程中获得更多成就！
+12. 全自动界面配色 + 菜单按钮颜色定制！随心为游戏内界面与菜单按钮修改配色，无需修改原文件！
+13. Terra's in-depth Poem Game guide!
+14. 由 Yagamirai01 贡献的 NVL 支持！
+15. 针对部分 Ren'Py 版本及 Windows 功能的补丁。
+16. Python 3 支持与代码！
+17. [BETA] Discord Rich Presence 绝赞支持！
+18. 动态超分辨率 (DSR/DSP) + 自定义分辨率！Scale positions and/or your assets higher than they usually can go and display DDLC in different resolution modes. The DDLC Mod Template is now a universal X resolution template!
+19. 玩家名称更改！听说你后悔使用原来的名字了？现在可以直接更改了！
+20. 新版莫妮卡终端 + 设置菜单！输入命令更加轻松，设置界面更干净。New Monika Console and Settings Menu! - Enjoy a easier console to type commands in and a cleaner settings UI compared to the original game.
 
 ### 中文模板 4.0 新优化
 
@@ -86,7 +87,7 @@ Follow the steps listed [here](https://ganstakingofsa.github.io/information/guid
 Refer to [*The DDLC Android Mod Guide*](./Documentation/Android%20Mod%20Guide.pdf) for more in-depth information about making your mod work on Android.
 > For older templates, refer to the PDF in your templates' ZIP file as the latest guide may not match your current template.
 
-Copyright © 2019-2022 Azariel Del Carmen (GanstaKingofSA). All rights reserved.  
+Copyright © 2019-2023 Azariel Del Carmen (GanstaKingofSA). All rights reserved.  
 Template translated and modified by DokiMod.
 
 Doki Doki Literature Club, the Doki Doki Literature Club code, is the property of Team Salvato (Dan Salvato LLC). Copyright © 2017 Team Salvato. All rights reserved.
