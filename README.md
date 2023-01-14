@@ -1,5 +1,11 @@
 # DDLC 中文 Mod 模板 4.0
 
+**使用此模板之前请注意！本项目包含对 DDLC 的剧透。我们希望您能在通关 DDLC 原作后使用该模板进行模组开发，以避免影响游戏体验。**
+
+**您仍需为自己的心理健康做周全的考虑。DDLC 本质上为心理恐怖游戏，并不适合所有玩家，且游戏内已经做了充足的提醒。心理健康比一切都重要。**
+
+---
+
 文思泉涌，再度归来。这里是全新的 DDLC 中文 Mod 模板 4.0，基于 Azariel Del Carmen (GanstaKingofSA) 制作的 [DDLC Mod Template 4.0](https://github.com/GanstaKingofSA/DDLCModTemplate2.0/tree/python-3)，并得到了汉化。整个模板遵循 [Team Salvato 的知识产权（IP）准则](https://teamsalvato.com/ip-guidelines/) 针对饭制模组的规定。
 
 > 本模板目前处于实验性阶段（进展为 2%），且使用了不太稳定的 Python 3 / Ren'Py 8，因此暂不建议使用于正式工程。（虽然硬着头皮用也不是不可以 —— imgradeone）  
