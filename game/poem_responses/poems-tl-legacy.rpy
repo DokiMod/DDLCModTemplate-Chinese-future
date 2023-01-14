@@ -220,7 +220,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 
     poem_n2b_chs_legacy = Poem(
         author = "natsuki",
-        title = "552B5byA5L2g55qE5aSp55y8IA==",
+        title = "552B5byA5L2g55qE5aSp55y8IA==", # 睁开你的天眼 
         text = """\
 5oiR5Y+v5Lul6YCP6L+H5YiA6ZSL5oSf
 5Y+X5aW555qu6IKk55qE5p+U6Z+n77yM
@@ -234,6 +234,10 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 57uP6L+H55WM5LqG44CC5oiRLi4u5oiR
 5oqR5Yi25LiN5L2P5LqG44CCIA=="""
         )
+
+# 我可以透过刀锋感受她皮肤的柔韧，就像是我触感的延伸。我的身体
+# 即将高潮。很深的深处，有某种特别微弱的尖叫在抵抗这种无法控制
+# 的愉悦。但是我很清楚我已经过界了。我...我抑制不住了。 
 
     poem_n3_chs_legacy = Poem(
         author = "natsuki",
@@ -420,7 +424,7 @@ unreleased tension experienced by my entire body. Her Third Eye is drawing me cl
 是吵闹的邻居？还是生气的男友？我怎么会知道，我又不在家
 我向内窥视着
 不！我的眼睛！我开始眩晕，目盲，宛如曝光的胶片
-可谓是已晚，我的视网膜上
+可为时已晚，我的视网膜上
 已经永远灼上了毫无意义的图像
 只是个小洞而已，并不亮
 可它实在太深
