@@ -62,8 +62,8 @@
 16. Python 3 支持与代码！
 17. [BETA] Discord Rich Presence 绝赞支持！
 18. 动态超分辨率 (DSR/DSP) + 自定义分辨率！Scale positions and/or your assets higher than they usually can go and display DDLC in different resolution modes. The DDLC Mod Template is now a universal X resolution template!
-19. 玩家名称更改！听说你后悔使用原来的名字了？现在可以直接更改了！
-20. 新版莫妮卡终端 + 设置菜单！输入命令更加轻松，设置界面更干净。New Monika Console and Settings Menu! - Enjoy a easier console to type commands in and a cleaner settings UI compared to the original game.
+19. 玩家名称更改！听说你手抖打错字了？现在您可以直接更改玩家名称了！
+20. 新版莫妮卡终端 + 设置菜单！输入命令更加轻松，设置界面更干净。
 
 ### 中文模板 4.0 新优化
 
