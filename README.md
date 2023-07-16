@@ -1,5 +1,7 @@
 # DDLC 中文 Mod 模板 4.0
 
+**我们推荐您使用 [DDLC 中文 Mod 模板 2.0](https://github.com/imgradeone/DDLCModTemplate-Chinese-next) 进行新模组开发。4.0 版本的 Mod 模板存在大量未知问题，且无力跟随上游开发。**
+
 **使用此模板之前请注意！本项目包含对 DDLC 的剧透。我们希望您能在通关 DDLC 原作后使用该模板进行模组开发，以避免影响游戏体验。**
 
 **您仍需为自己的心理健康做周全的考虑。DDLC 本质上为心理恐怖游戏，并不适合所有玩家，且游戏内已经做了充足的提醒。心理健康比一切都重要。**
@@ -9,7 +11,6 @@
 文思泉涌，再度归来。这里是全新的 DDLC 中文 Mod 模板 4.0，基于 Azariel Del Carmen (GanstaKingofSA) 制作的 [DDLC Mod Template 4.0](https://github.com/GanstaKingofSA/DDLCModTemplate2.0/tree/python-3)，并得到了汉化。整个模板遵循 [Team Salvato 的知识产权（IP）准则](https://teamsalvato.com/ip-guidelines/) 针对饭制模组的规定。
 
 > 本模板目前处于实验性阶段（进展为 2%），且使用了不太稳定的 Python 3 / Ren'Py 8，因此暂不建议使用于正式工程。（虽然硬着头皮用也不是不可以 —— imgradeone）  
-> 目前如有需要，我们推荐您使用 [DDLC 中文 Mod 模板 2.0](https://github.com/imgradeone/DDLCModTemplate-Chinese-next) 进行新模组开发。
 
 > Additionaly [here](./CREDITS.md) are all the contributors that contributed to the mod template.
 
@@ -62,8 +63,8 @@
 16. Python 3 支持与代码！
 17. [BETA] Discord Rich Presence 绝赞支持！
 18. 动态超分辨率 (DSR/DSP) + 自定义分辨率！Scale positions and/or your assets higher than they usually can go and display DDLC in different resolution modes. The DDLC Mod Template is now a universal X resolution template!
-19. 玩家名称更改！听说你后悔使用原来的名字了？现在可以直接更改了！
-20. 新版莫妮卡终端 + 设置菜单！输入命令更加轻松，设置界面更干净。New Monika Console and Settings Menu! - Enjoy a easier console to type commands in and a cleaner settings UI compared to the original game.
+19. 玩家名称更改！听说你手抖打错字了？现在您可以直接更改玩家名称了！
+20. 新版莫妮卡终端 + 设置菜单！输入命令更加轻松，设置界面更干净。
 
 ### 中文模板 4.0 新优化
 
