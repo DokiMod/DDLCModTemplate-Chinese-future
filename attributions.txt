@@ -3,7 +3,7 @@ FONT LICENSES for DDLC Chinese Mod Template
 natsuki.otf (Acy Font): 
 Copyright (c) 2019-2020, lxfly2000. Licensed under SIL Open Font License 1.1.
 
-harmonyossans.ttf (HarmonyOS Sans): 
+sarasagothic.ttf (Sarasa Gothic): 
 Copyright 2021 Huawei Device Co., Ltd. Licensed under HarmonyOS Sans Fonts License Agreement. Full license content can be viewed at /game/mod_assets/font/LICENSE-harmonyossans.txt.
 
 monika.ttf (Yozai Font): 
