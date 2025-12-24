@@ -2,6 +2,8 @@
 
 **我们推荐您使用 [DDLC 中文 Mod 模板 2.0](https://github.com/imgradeone/DDLCModTemplate-Chinese-next) 进行新模组开发。4.0 版本的 Mod 模板存在大量未知问题，且无力跟随上游开发。**
 
+与此同时，DDLC 中文 Mod 模板 5.0 版本正在紧锣密鼓开发中，汉化更规范、更完善，代码更现代化，完美兼容 Ren'Py SDK 8，且正全力修复模板历史遗留问题。您可以前往 [DokiMod/DDLCModTemplate-Chinese-v5](https://github.com/DokiMod/DDLCModTemplate-Chinese-v5) 仓库获取 DDLC 中文 Mod 模板 5.0（预览版）。**目前 5.0 版本不适合生产环境，因此您可以继续使用 Mod 模板 2.0 版本进行开发。**
+
 **使用此模板之前请注意！本项目包含对 DDLC 的剧透。我们希望您能在通关 DDLC 原作后使用该模板进行模组开发，以避免影响游戏体验。**
 
 **您仍需为自己的心理健康做周全的考虑。DDLC 本质上为心理恐怖游戏，并不适合所有玩家，且游戏内已经做了充足的提醒。心理健康比一切都重要。**
